@@ -191,9 +191,4 @@ public class LinkedListTest {
         assertThrows(IllegalStateException.class,list::removeFirst, "removeFirst on empty throws");
         assertThrows(IllegalStateException.class,list::removeLast, "removeLast on empty throws");
     }
-
-    @Test
-    public void testFail(){
-        assertEquals(true,false);
-    }
 }

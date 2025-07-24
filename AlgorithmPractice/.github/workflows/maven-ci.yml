@@ -1,0 +1,27 @@
+name: Maven CI - Run Tests on Push
+
+on:
+  push:
+    branches:
+      - main  # Trigger on pushes to main (change to your branch if needed, e.g., master or doubly)
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest  # GitHub's Linux runner - fast and free
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4  # Fetches your repo code
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'  # Match your project's JDK (check pom.xml or IntelliJ Settings > Build > Compiler > Java Compiler)
+          distribution: 'temurin'  # Eclipse Temurin JDK - reliable for Maven
+          cache: maven  # Caches dependencies for faster runs
+
+      - name: Build with Maven
+        run: mvn clean install  # Cleans and builds your project (optional, but ensures compile before test)
+
+      - name: Run tests
+        run: mvn test  # Runs your JUnit tests (e.g., LinkedListTest)

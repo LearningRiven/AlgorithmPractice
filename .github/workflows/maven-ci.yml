@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main  # Trigger on pushes to main (change to your branch if needed, e.g., master or doubly)
+      
+permissions:
+  contents: write  # Allows workflow to commit/push to repo
 
 jobs:
   build-and-test:
@@ -25,3 +28,39 @@ jobs:
 
       - name: Run tests
         run: mvn test  # Runs your JUnit tests (e.g., LinkedListTest)
+
+      - name: Install jq
+        run: sudo apt-get update && sudo apt-get install -y jq
+
+      - name: Parse Per-Class Test Stats
+        run: |
+          echo "[]" > test-summary.json  # Start with empty array
+          shopt -s nullglob  # Handle no files gracefully
+          for report in target/surefire-reports/*.xml; do
+            if [ -f "$report" ]; then
+              class=$(basename "$report" .xml | sed 's/TEST-//')
+              total=$(grep -c "<testcase" "$report" || echo 0)
+              failures=$(grep -c "<failure" "$report" || echo 0)
+              errors=$(grep -c "<error" "$report" || echo 0)
+              skipped=$(grep -c "<skipped" "$report" || echo 0)
+              passed=$((total - failures - errors - skipped))
+              # Use jq to build array, read existing JSON
+              jq -c --arg class "$class" --arg passed "$passed" --arg total "$total" '. + [{"class": $class, "passed": $passed, "total": $total}]' test-summary.json > tmp.json && mv tmp.json test-summary.json
+            fi
+          done
+          cat test-summary.json  # Debug: Print to log"
+
+      - name: Upload Test Summary Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-summary
+          path: test-summary.json
+
+      - name: Commit and Amend Test Summary
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git pull origin main --rebase
+          git add test-summary.json
+          git commit --amend --no-edit
+          git push origin main --force-with-lease

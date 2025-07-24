@@ -34,21 +34,27 @@ jobs:
 
       - name: Parse Per-Class Test Stats
         run: |
-          echo "[]" > test-summary.json  # Start with empty array
-          shopt -s nullglob  # Handle no files gracefully
+          echo "[]" > test-summary.json  # Init empty array
+          shopt -s nullglob  # Handle no files without error
           for report in target/surefire-reports/*.xml; do
             if [ -f "$report" ]; then
-              class=$(basename "$report" .xml | sed 's/TEST-//')
+              class=$(basename "$report" .xml | sed 's/TEST-//g' | sed 's/org.algomonster.datastructures.linkedlist.//')  # Clean class name, remove package if needed
               total=$(grep -c "<testcase" "$report" || echo 0)
               failures=$(grep -c "<failure" "$report" || echo 0)
               errors=$(grep -c "<error" "$report" || echo 0)
               skipped=$(grep -c "<skipped" "$report" || echo 0)
-              passed=$((total - failures - errors - skipped))
-              # Use jq to build array, read existing JSON
+              echo "Debug: class=$class total=$total failures=$failures errors=$errors skipped=$skipped"  # Debug to log
+              passed=$(( ${total:-0} - ${failures:-0} - ${errors:-0} - ${skipped:-0} ))  # Use defaults to avoid syntax error
               jq -c --arg class "$class" --arg passed "$passed" --arg total "$total" '. + [{"class": $class, "passed": $passed, "total": $total}]' test-summary.json > tmp.json && mv tmp.json test-summary.json
             fi
           done
-          cat test-summary.json  # Debug: Print to log"
+          if [ -s test-summary.json ] && [ "$(cat test-summary.json)" != "[]" ]; then
+            echo "Generated test-summary.json with data"
+          else
+            echo "[{\"class\": \"NoTests\", \"passed\": \"0\", \"total\": \"0\"}]" > test-summary.json  # Default for no tests
+            echo "No test reports found, generated default JSON"
+          fi
+          cat test-summary.json  # Debug: Print to log
 
       - name: Upload Test Summary Artifact
         uses: actions/upload-artifact@v4

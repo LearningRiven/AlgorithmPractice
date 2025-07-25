@@ -79,14 +79,17 @@ jobs:
 
       - name: Push Test Summary to ci-stats Branch
         run: |
-          cp test-summary.json /tmp/test-summary.json  # Move the file aside to clean the working dir
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          mv test-summary.json /tmp/test-summary.json  # Truly move aside to clean the working dir
           git fetch origin  # Fetch latest remote state
           if git rev-parse --verify origin/ci-stats >/dev/null 2>&1; then
-            git checkout -B ci-stats origin/ci-stats  # Reset local branch to remote if it exists
+            git checkout -B ci-stats origin/ci-stats  # Reset to remote if exists
           else
-            git checkout -b ci-stats  # Create new if remote doesn't exist
+            git checkout -b ci-stats  # Create new if not
           fi
-          cp /tmp/test-summary.json .  # Copy the updated file back
+          mv /tmp/test-summary.json .  # Move back, overwriting if exists
           git add test-summary.json
+          git status  # For debugging: shows if the file is staged as added/modified
           git commit -m "Update test summary from CI run" || echo "No changes to commit"
           git push origin ci-stats --force-with-lease  # Push safely

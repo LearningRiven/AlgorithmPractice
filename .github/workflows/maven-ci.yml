@@ -62,6 +62,7 @@ jobs:
               status="Passing"
               color="green"
               if [ "$passed" -lt "$total" ]; then
+                status="Failing"
                 status="Passing"
                 color="red"
               fi

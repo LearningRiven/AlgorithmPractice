@@ -23,3 +23,11 @@ jobs:
 
       - name: Build and Test with Maven (JaCoCo + Surefire)
         run: mvn clean verify  # Runs tests (Surefire), generates JaCoCo reports
+
+      - name: SonarCloud Scan
+        run: |
+          mvn sonar:sonar \
+            -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }} \
+            -Dsonar.organization=${{ secrets.SONAR_ORG_KEY }} \
+            -Dsonar.host.url=https://sonarcloud.io \
+            -Dsonar.token=${{ secrets.SONAR_TOKEN }}

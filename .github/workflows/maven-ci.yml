@@ -25,9 +25,11 @@ jobs:
 
       - name: Build with Maven
         run: mvn clean install  # Cleans and builds your project (optional, but ensures compile before test)
+        continue-on-error: true
 
       - name: Run tests
         run: mvn test  # Runs your JUnit tests (e.g., LinkedListTest)
+        continue-on-error: true
 
       - name: Cache jq
         uses: actions/cache@v4

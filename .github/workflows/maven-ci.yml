@@ -66,7 +66,7 @@ jobs:
                 color="red"
               fi
               message="$status $passed/$total"  # Format as "Passing 15/15"
-              jq -c --arg class "$class" --arg passed "$passed" --arg total "$total" --arg message "$message" '. + [{"class": $class, "passed": $passed, "total": $total, "message": $message}]' test-summary.json > tmp.json && mv tmp.json test-summary.json
+              jq -c --arg class "$class" --arg passed "$passed" --arg total "$total" --arg message "$message" '. + [{"class": $class, "passed": $passed, "total": $total, "message": $message, "color": $color }]' test-summary.json > tmp.json && mv tmp.json test-summary.json
             fi
           done
           if [ -s test-summary.json ] && [ "$(jq '. | length' test-summary.json)" -gt 0 ]; then

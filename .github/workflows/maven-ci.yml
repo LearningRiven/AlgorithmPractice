@@ -77,13 +77,11 @@ jobs:
           fi
           cat test-summary.json  # Debug: Print to log
 
-      - name: Commit and Amend Test Summary
+      - name: Push Test Summary to ci-stats Branch
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
-          git stash push -m "Stash unstaged changes for rebase" || echo "No changes to stash"
-          git pull origin main --rebase  # Now safe to pull with rebase
-          git stash pop || echo "No stash to pop"  # Restore if stash existed
+          git checkout -b ci-stats || git checkout ci-stats  # Create or switch to ci-stats branch
           git add test-summary.json
-          git commit --amend --no-edit || echo "No changes to amend"
-          git push origin main --force-with-lease
+          git commit -m "Update test summary from CI run" || echo "No changes to commit"
+          git push origin ci-stats --force-with-lease  # Push to ci-stats, force-with-lease for safety

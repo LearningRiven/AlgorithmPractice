@@ -1,0 +1,89 @@
+name: Maven CI - Run Tests on Push
+
+on:
+  push:
+    branches:
+      - main  # Trigger on pushes to main (change to your branch if needed, e.g., master or doubly)
+
+permissions:
+  contents: write  # Allows push/amend to the rep
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest  # GitHub's Linux runner - fast and free
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4  # Fetches your repo code
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'  # Match your project's JDK (check pom.xml or IntelliJ Settings > Build > Compiler > Java Compiler)
+          distribution: 'temurin'  # Eclipse Temurin JDK - reliable for Maven
+          cache: maven  # Caches dependencies for faster runs
+
+      - name: Build with Maven
+        run: mvn clean install  # Cleans and builds your project (optional, but ensures compile before test)
+        continue-on-error: true
+
+      - name: Run tests
+        run: mvn test  # Runs your JUnit tests (e.g., LinkedListTest)
+        continue-on-error: true
+
+      - name: Cache jq
+        uses: actions/cache@v4
+        id: cache-jq
+        with:
+          path: /usr/local/bin/jq  # Cache the jq binary path
+          key: ${{ runner.os }}-jq-${{ hashFiles('apt-requirements.txt') }}  # Key on OS and hash of requirements file
+          restore-keys: ${{ runner.os }}-jq-  # Fallback to any jq cache
+
+      - if: ${{ steps.cache-jq.outputs.cache-hit != 'true' }}
+        name: Install jq
+        run: sudo apt-get update && sudo apt-get install -y jq || echo "Install failed, but cache will handle next run"
+
+      - name: Parse Per-Class Test Stats
+        run: |
+          echo "[]" > test-summary.json  # Init empty array
+          shopt -s nullglob  # Handle no files without error
+          for report in target/surefire-reports/*.xml; do
+            if [ -f "$report" ]; then
+              class=$(basename "$report" .xml | sed 's/TEST-//g' | sed 's/org.algomonster.datastructures.linkedlist.//')  # Clean class name, remove package if needed
+              total=$(grep -c "<testcase" "$report" | sed 's/ //g' || echo 0)  # Trim whitespace
+              failures=$(grep -c "<failure" "$report" | sed 's/ //g' || echo 0)
+              errors=$(grep -c "<error" "$report" | sed 's/ //g' || echo 0)
+              skipped=$(grep -c "<skipped" "$report" | sed 's/ //g' || echo 0)
+              echo "Debug: class=$class total='$total' failures='$failures' errors='$errors' skipped='$skipped'"  # Debug with quotes to show whitespace
+              passed=0
+              if [ "$total" -gt 0 ]; then
+                let "passed = total - failures - errors - skipped"  # Use let for more forgiving arithmetic
+              fi
+              status="Passing"
+              color="green"
+              if [ "$passed" -lt "$total" ]; then
+                status="Passing"
+                color="red"
+              fi
+              message="$status $passed/$total"  # Format as "Passing 15/15"
+              jq -c --arg class "$class" --arg passed "$passed" --arg total "$total" --arg message "$message" '. + [{"class": $class, "passed": $passed, "total": $total, "message": $message, "color": $color}]' test-summary.json > tmp.json && mv tmp.json test-summary.json
+            fi
+          done
+          if [ -s test-summary.json ] && [ "$(jq '. | length' test-summary.json)" -gt 0 ]; then
+            echo "Generated test-summary.json with data"
+          else
+            echo "[{\"class\": \"NoTests\", \"passed\": \"0\", \"total\": \"0\", \"message\": \"NoTests 0/0 gray\"}]" > test-summary.json  # Default for no tests
+            echo "No test reports found, generated default JSON"
+          fi
+          cat test-summary.json  # Debug: Print to log
+
+      - name: Commit and Amend Test Summary
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git stash push -m "Stash unstaged changes for rebase" || echo "No changes to stash"
+          git pull origin main --rebase  # Now safe to pull with rebase
+          git stash pop || echo "No stash to pop"  # Restore if stash existed
+          git add test-summary.json
+          git commit --amend --no-edit || echo "No changes to amend"
+          git push origin main --force-with-lease

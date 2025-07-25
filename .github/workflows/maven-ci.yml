@@ -72,7 +72,7 @@ jobs:
           if [ -s test-summary.json ] && [ "$(jq '. | length' test-summary.json)" -gt 0 ]; then
             echo "Generated test-summary.json with data"
           else
-            echo "[{\"class\": \"NoTests\", \"passed\": \"0\", \"total\": \"0\", \"message\": \"NoTests 0/0 gray\"}]" > test-summary.json  # Default for no tests
+            echo "[{\"class\": \"NoTests\", \"passed\": \"0\", \"total\": \"0\", \"message\": \"NoTests 0/0\"}]" > test-summary.json  # Default for no tests
             echo "No test reports found, generated default JSON"
           fi
           cat test-summary.json  # Debug: Print to log

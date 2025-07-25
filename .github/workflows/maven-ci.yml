@@ -63,7 +63,7 @@ jobs:
                 status="Failing"
                 color="red"
               fi
-              message="$status $passed/$total $color"  # Format as "Passing 15/15 green"
+              message="$status $passed/$total"  # Format as "Passing 15/15"
               jq -c --arg class "$class" --arg passed "$passed" --arg total "$total" --arg message "$message" '. + [{"class": $class, "passed": $passed, "total": $total, "message": $message}]' test-summary.json > tmp.json && mv tmp.json test-summary.json
             fi
           done

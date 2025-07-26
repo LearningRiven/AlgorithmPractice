@@ -8,7 +8,7 @@ class HashMapTest {
     @Test
     //Tests the initial state of the map
     void testInitialization(){
-        HashMap<String,Integer> map = new HashMap<String,Integer>();
+        HashMap<String,Integer> map = new HashMap<>();
         assertNotNull(map);
         assertTrue(map.isEmpty());
         assertEquals(0,map.size());
@@ -17,7 +17,7 @@ class HashMapTest {
     @Test
     //Tests both put and get as well as size
     void testPutGetInsert(){
-        HashMap<String,Integer> map = new HashMap<String,Integer>();
+        HashMap<String,Integer> map = new HashMap<>();
 
         //Single Insert
         map.put("first",1);
@@ -35,7 +35,7 @@ class HashMapTest {
     @Test
     //Tests how overwriting works with put and get as well as size
     void testPutGetOverwrite(){
-        HashMap<String,Integer> map = new HashMap<String,Integer>();
+        HashMap<String,Integer> map = new HashMap<>();
 
         //Single Insert
         map.put("first",1);
@@ -53,7 +53,7 @@ class HashMapTest {
     @Test
     //Tests how null values are handled with put and get as well as size
     void testPutGetNull(){
-        HashMap<String,Integer> map = new HashMap<String,Integer>();
+        HashMap<String,Integer> map = new HashMap<>();
         map.put("first",null);
 
         assertNull(map.get("second"));
@@ -65,14 +65,26 @@ class HashMapTest {
     @Test
     //Tests how collisions work with put and get as well as size
     void testPutCollisions(){
-        HashMap<String,Integer> map = new HashMap<String,Integer>();
-        assertTrue(false); //Place holder
+        HashMap<String, Integer> map = new HashMap<>(); // Move to @BeforeEach later
+        map.put("Aa", 1); //2112
+        map.put("BB", 2); //2112
+
+        // Verify the collision is handled correctly
+        assertEquals(1, map.get("Aa"));
+        assertEquals(2, map.get("BB"));
+        assertEquals(2, map.size());
+
+        // Remove from chain, verify that the bucket is updated correctly
+        assertEquals(1, map.remove("Aa"));
+        assertNull(map.get("Aa"));
+        assertEquals(2, map.get("BB"));
+        assertEquals(1, map.size());
     }
 
     @Test
     //Tests removing, handles null and missing as well as size changes
     void testRemove(){
-        HashMap<String,Integer> map = new HashMap<String,Integer>();
+        HashMap<String,Integer> map = new HashMap<>();
         map.put("first",1);
         map.put("second",2);
 
@@ -93,7 +105,7 @@ class HashMapTest {
     @Test
     //Tests checking whether a map contains a key or not
     void testContains(){
-        HashMap<String,Integer> map = new HashMap<String,Integer>();
+        HashMap<String,Integer> map = new HashMap<>();
         map.put("first",1);
         map.put("second",2);
         map.put("third",3);
@@ -113,7 +125,7 @@ class HashMapTest {
     @Test
     //Tests whether clear returns to the initial state of the map
     void testClear(){
-        HashMap<String,Integer> map = new HashMap<String,Integer>();
+        HashMap<String,Integer> map = new HashMap<>();
         map.put("first",1);
         map.put("second",2);
         map.put("third",3);

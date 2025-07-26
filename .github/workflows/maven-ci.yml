@@ -43,7 +43,7 @@ jobs:
       - name: Generate Test Badge JSONs
         if: always() # Should always run
         run: |
-          sudo apt-get update && sudo-apt-get install -y xmlstarlet                         # Install parsing package
+          sudo apt-get update && sudo apt-get install -y xmlstarlet                         # Install parsing package
           mkdir -p ci-stats                                                                 # Create a temporary directory for the reports
           for file in target/surefire-reports/Test-*.xml;                                   # Go through the generated reports
           do                                                                                # Loop Start

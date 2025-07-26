@@ -49,6 +49,14 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.3.0</version> <!-- Latest stable for JDK 21/JUnit 5 as of July 2025 -->
+                <configuration>
+                    <argLine>@{argLine}</argLine> <!-- Integrates with JaCoCo agent -->
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 </project>

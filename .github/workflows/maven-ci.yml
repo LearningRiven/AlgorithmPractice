@@ -26,14 +26,6 @@ jobs:
       - name: Build and Test with Maven (JaCoCo + Surefire)
         run: mvn clean verify  # Runs tests (Surefire), generates JaCoCo reports
 
-      - name: SonarCloud Scan
-        run: |
-          mvn sonar:sonar \
-            -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }} \
-            -Dsonar.organization=${{ secrets.SONAR_ORG_KEY }} \
-            -Dsonar.host.url=https://sonarcloud.io \
-            -Dsonar.token=${{ secrets.SONAR_TOKEN }}
-
       - name: Upload Coverage to Codecov
         uses: codecov/codecov-action@v4
         with:
@@ -85,3 +77,11 @@ jobs:
           git add .                                                                         
           git commit -m "Update test badge JSONs from CI" || echo "No changes"          
           git push origin ci-stats --force
+
+      - name: SonarCloud Scan
+        run: |
+          mvn sonar:sonar \
+            -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }} \
+            -Dsonar.organization=${{ secrets.SONAR_ORG_KEY }} \
+            -Dsonar.host.url=https://sonarcloud.io \
+            -Dsonar.token=${{ secrets.SONAR_TOKEN }}

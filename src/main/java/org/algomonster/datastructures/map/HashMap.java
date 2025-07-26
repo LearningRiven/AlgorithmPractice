@@ -1,7 +1,5 @@
 package org.algomonster.datastructures.map;
 
-import java.util.Map;
-
 public class HashMap<K, V> {
     // Inner class here: private static class MapEntry<K, V> { ... } with your refinements (immutable key, manual equals/hashCode without Objects)
 
@@ -46,7 +44,7 @@ public class HashMap<K, V> {
      * MapEntry structure for the hashmap class
      */
     private static class MapEntry<K,V>{
-        private K key;
+        private final K key;
         private V value;
         public MapEntry<K,V> next;
 
@@ -59,14 +57,28 @@ public class HashMap<K, V> {
         private MapEntry(K key, V value){
             this.key = key;
             this.value = value;
+            this.next = null;
         }
 
         public MapEntry<K,V> getNext(){
             return this.next;
         }
 
-        public void setNext(K key, V value){
-            this.next = new MapEntry<K,V>(key,value);
+        public void setNext(MapEntry<K, V> next){
+            this.next = next;
+        }
+
+        public V getValue(){
+            return this.value;
+        }
+
+        public void setValue(V value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString(){
+            return this.key + "=" + this.value;
         }
     }
 }

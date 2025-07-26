@@ -1,11 +1,13 @@
 name: Java CI with Maven
 
+permissions:
+  contents: write  # Allows push/amend to the rep
+
 on:
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
-
 
 jobs:
   build:

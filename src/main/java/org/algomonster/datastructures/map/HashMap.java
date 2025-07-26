@@ -1,5 +1,7 @@
 package org.algomonster.datastructures.map;
 
+import java.util.Objects;
+
 public class HashMap<K, V> {
 
     private MapEntry<K,V>[] buckets;
@@ -180,6 +182,14 @@ public class HashMap<K, V> {
         @Override
         public String toString(){
             return this.key + "=" + this.value;
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            MapEntry<?, ?> that = (MapEntry<?, ?>) o;
+            return Objects.equals(key, that.key) && Objects.equals(value, that.value);
         }
 
         @Override

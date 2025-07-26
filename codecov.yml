@@ -1,0 +1,9 @@
+coverage:
+  status:
+    project: true
+    patch: true
+flags:
+# Add per-class as before
+parsers:
+  jacoco:
+    partials: true  # Handles partial lines

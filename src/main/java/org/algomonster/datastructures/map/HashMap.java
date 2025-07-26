@@ -48,6 +48,7 @@ public class HashMap<K, V> {
     private static class MapEntry<K,V>{
         private K key;
         private V value;
+        public MapEntry<K,V> next;
 
         private MapEntry(){
             this.key = null;
@@ -57,6 +58,14 @@ public class HashMap<K, V> {
         private MapEntry(K key, V value){
             this.key = key;
             this.value = value;
+        }
+
+        public MapEntry<K,V> getNext(){
+            return this.next;
+        }
+
+        public void setNext(K key, V value){
+            this.next = new MapEntry<K,V>(key,value);
         }
     }
 }

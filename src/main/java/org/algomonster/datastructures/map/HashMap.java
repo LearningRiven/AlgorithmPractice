@@ -19,14 +19,7 @@ public class HashMap<K, V> {
         MapEntry<K,V> entry = this.traverseBucket(buckets[index], key);
 
         if(entry != null){
-            if(entry.key.equals(key)){
-                entry.setValue(value);
-            }
-            else{
-                buckets[index].setPrevious(entry);
-                entry.setNext(buckets[index]);
-                this.size++;
-            }
+            entry.setValue(value);
         }
         else{
             entry = new MapEntry<>(key,value);
@@ -69,11 +62,13 @@ public class HashMap<K, V> {
         if(head != null && (head.key == key || (head.key != null && head.key.equals(key)))){
             //Middle of the chain
             if(head.getPrevious() != null && head.getNext() != null){
+                head.getNext().setPrevious(head.getPrevious());
                 head.getPrevious().setNext(head.getNext());
             }
             //Start of the chain
             else if(head.getPrevious() == null && head.getNext() != null){
                 buckets[index] = head.getNext();
+                head.getNext().setPrevious(null);
             }
             else if(head.getPrevious() != null && head.getNext() == null){
                 head.getPrevious().setNext(null);

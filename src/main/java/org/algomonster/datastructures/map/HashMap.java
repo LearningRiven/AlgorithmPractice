@@ -1,7 +1,5 @@
 package org.algomonster.datastructures.map;
 
-import java.util.Map;
-
 public class HashMap<K, V> {
 
     private MapEntry<K,V>[] buckets;

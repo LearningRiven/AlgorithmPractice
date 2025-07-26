@@ -32,7 +32,8 @@ jobs:
             -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }} \
             -Dsonar.organization=${{ secrets.SONAR_ORG_KEY }} \
             -Dsonar.host.url=https://sonarcloud.io \
-            -Dsonar.token=${{ secrets.SONAR_TOKEN }}
+            -Dsonar.token=${{ secrets.SONAR_TOKEN }}\
+            -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
 
       - name: Upload Coverage to Codecov
         uses: codecov/codecov-action@v4
@@ -40,7 +41,6 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}  # Optional for public repos, but use it
           files: ./target/site/jacoco/jacoco.xml  # Main JaCoCo report; add more if needed (e.g., ,./target/site/jacoco-ut.xml)
           fail_ci_if_error: false  # Don't fail build on upload issues
-          verbose: true  # For debugging in Actions logs
 
       - name: Generate Test Badge JSONs
         if: always() # Should always run

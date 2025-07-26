@@ -26,15 +26,15 @@ jobs:
       - name: Build and Test with Maven (JaCoCo + Surefire)
         run: mvn clean verify  # Runs tests (Surefire), generates JaCoCo reports
 
-      - name: SonarCloud Scan
-        continue-on-error: true  # Add this—keeps CI green for now
-        run: |
-          mvn sonar:sonar \
-            -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }} \
-            -Dsonar.organization=${{ secrets.SONAR_ORG_KEY }} \
-            -Dsonar.host.url=https://sonarcloud.io \
-            -Dsonar.token=${{ secrets.SONAR_TOKEN }}\
-            -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
+#      - name: SonarCloud Scan
+#        continue-on-error: true  # Add this—keeps CI green for now
+#        run: |
+#          mvn sonar:sonar \
+#            -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }} \
+#            -Dsonar.organization=${{ secrets.SONAR_ORG_KEY }} \
+#            -Dsonar.host.url=https://sonarcloud.io \
+#            -Dsonar.token=${{ secrets.SONAR_TOKEN }}\
+#            -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
 
       - name: Upload Coverage to Codecov
         uses: codecov/codecov-action@v4

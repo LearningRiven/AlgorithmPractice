@@ -66,12 +66,7 @@ jobs:
             else                                                                            # Failures
               color="critical" # Red
             fi
-            echo '{                                                                         # Add it as an object into its own json file
-              "schemaVersion" : 1,
-              "label" : "'$class'",
-              "message" : "'$message'",
-              "color" : "'$color'"
-            }' > "ci-stats/$class.json"
+            echo '{"schemaVersion" : 1,"label" : "'$class'","message" : "'$message'","color" : "'$color'"}' > "ci-stats/$class.json" # Create the JSON in a single line
           done                                                                              # Loop End
           
       - name: Push Badge JSONs to ci-stats Branch

@@ -38,7 +38,7 @@ jobs:
 
       - name: Debug Jacoco Report
         run: |
-          ls -la target/site/jacoco || echo "Jacoco directory not found - check if report goal ran"
+          ls -la target || echo "Target dir missing"
           cat target/site/jacoco/jacoco.xml || echo "jacoco.xml not found or empty - verify tests cover code"
 
       - name: Upload Coverage to Codecov
@@ -57,11 +57,11 @@ jobs:
           for file in target/surefire-reports/TEST-*.xml;                                   # Go through the generated reports
           do                                                                                # Loop Start
             if [ ! -f "$file" ];                                                            # Make sure the file actually exists
-              then continue; 
+              then continue;
             fi
             class=$(basename "$file" .xml |                                                 # Remove the extension from the file
                     sed 's/TEST-//' |                                                       # Remove the TEST- from the start
-                    awk -F. '{print $NF}')                                                  # Split out the rest of the name by '.' and 
+                    awk -F. '{print $NF}')                                                  # Split out the rest of the name by '.' and
             tests=$(xmlstarlet sel -t -v '/testsuite/@tests' "$file" || echo 0)             # Root XML tests property
             failures=$(xmlstarlet sel -t -v '/testsuite/@failures' "$file" || echo 0)       # Root XML failures property
             errors=$(xmlstarlet sel -t -v '/testsuite/@errors' "$file" || echo 0)           # Root XML errors property
@@ -75,20 +75,20 @@ jobs:
             fi
             echo '{"schemaVersion":1,"label":"Tests Passing","message":"'$message'","color":"'$color'"}' > "ci-stats/$class.json" # Create the JSON in a single line
           done                                                                              # Loop End
-          
+
       - name: Push Badge JSONs to ci-stats Branch
         if: always()
         run: |
           # Default workflow user config
           git config user.name github-actions
           git config user.email github-actions@github.com
-          
+
           # Checkout the dedicated stats branch
           git checkout ci-stats || git checkout -b ci-stats
           mkdir -p test-badges                                                              # Create folder if missing
           cp ci-stats/*.json test-badges/                                                   # Copy reports into the folder
-          
+
           # Add and Push changes to ci-stats
-          git add .                                                                         
-          git commit -m "Update test badge JSONs from CI" || echo "No changes"          
+          git add .
+          git commit -m "Update test badge JSONs from CI" || echo "No changes"
           git push origin ci-stats --force

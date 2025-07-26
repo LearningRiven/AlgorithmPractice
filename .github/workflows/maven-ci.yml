@@ -45,7 +45,7 @@ jobs:
         uses: codecov/codecov-action@v4
         with:
           token: ${{ secrets.CODECOV_TOKEN }}  # Optional for public repos, but use it
-          files: ./target/site/jacoco/jacoco.xml  # Main JaCoCo report; add more if needed (e.g., ,./target/site/jacoco-ut.xml)
+          files: ./target/jacoco.exec  # Change to this binary file
           verbose: true  # Debug logs
           fail_ci_if_error: true  # Don't fail build on upload issues
 

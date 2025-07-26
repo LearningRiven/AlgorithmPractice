@@ -3,7 +3,24 @@ coverage:
     project: true
     patch: true
 flags:
-# Add per-class as before
+  node:
+    paths:
+      - "src/main/java/org/algomonster/datastructures/Node.java"  # Exact or "*/Node.java" for subdirs
+  linkedlist:
+    paths:
+      - "src/main/java/org/algomonster/datastructures/linkedlist/LinkedList.java"
+  hashmap:
+    paths:
+      - "src/main/java/org/algomonster/datastructures/map/HashMap.java"  # Note package diff from logs
+  array:
+    paths:
+      - "src/main/java/org/algomonster/datastructures/array/Array.java"
+  queue:
+    paths:
+      - "src/main/java/org/algomonster/datastructures/queue/Queue.java"
+  stack:
+    paths:
+      - "src/main/java/org/algomonster/datastructures/stack/Stack.java"
 parsers:
   jacoco:
     partials: true  # Handles partial lines

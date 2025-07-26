@@ -53,6 +53,7 @@ public class HashMap<K, V> {
         private MapEntry(){
             this.key = null;
             this.value = null;
+            this.next = null;
         }
 
         private MapEntry(K key, V value){

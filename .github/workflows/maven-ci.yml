@@ -45,7 +45,7 @@ jobs:
         run: |
           sudo apt-get update && sudo apt-get install -y xmlstarlet                         # Install parsing package
           mkdir -p ci-stats                                                                 # Create a temporary directory for the reports
-          for file in target/surefire-reports/Test-*.xml;                                   # Go through the generated reports
+          for file in target/surefire-reports/TEST-*.xml;                                   # Go through the generated reports
           do                                                                                # Loop Start
             if [ ! -f "$file" ];                                                            # Make sure the file actually exists
               then continue; 

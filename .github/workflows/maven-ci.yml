@@ -39,3 +39,52 @@ jobs:
           files: ./target/site/jacoco/jacoco.xml  # Main JaCoCo report; add more if needed (e.g., ,./target/site/jacoco-ut.xml)
           fail_ci_if_error: false  # Don't fail build on upload issues
           verbose: true  # For debugging in Actions logs
+
+      - name: Generate Test Badge JSONs
+        if: always() # Should always run
+        run: |
+          sudo apt-get update && sudo-apt-get install -y xmlstarlet                         # Install parsing package
+          mkdir -p ci-stats                                                                 # Create a temporary directory for the reports
+          for file in target/surefire-reports/Test-*.xml;                                   # Go through the generated reports
+          do                                                                                # Loop Start
+            if [ ! -f "$file" ];                                                            # Make sure the file actually exists
+              then continue; 
+            fi
+            class=$(basename "$file" .xml |                                                 # Remove the extension from the file
+                    sed 's/TEST-//' |                                                       # Remove the TEST- from the start
+                    awk -F. '{print $NF}')                                                  # Split out the rest of the name by '.' and 
+            tests=$(xmlstarlet sel -t -v '/testsuite/@tests' "$file" || echo 0)             # Root XML tests property
+            failures=$(xmlstarlet sel -t -v '/testsuite/@failures' "$file" || echo 0)       # Root XML failures property
+            errors=$(xmlstarlet sel -t -v '/testsuite/@errors' "$file" || echo 0)           # Root XML errors property
+            skipped=$(xmlstarlet sel -t -v '/testsuite/@skipped' "$file" || echo 0)         # Root XML skipped property
+            passed=$((tests - failures - errors - skipped))                                 # Derive how many passed from above
+            message="$passed/$tests"
+            if [ "$failures" -eq 0 ] && [ "$errors" -eq 0 ] && [ "$skipped" -eq 0 ];then    # No Failures
+              color="success" # Green
+            else                                                                            # Failures
+              color="critical" # Red
+            fi
+            echo '{                                                                         # Add it as an object into its own json file
+              "schemaVersion" : 1,
+              "label" : "'$class'",
+              "message" : "'$message'",
+              "color" : "'$color'"
+            }' > "ci-stats/$class.json"
+          done                                                                              # Loop End
+          
+      - name: Push Badge JSONs to ci-stats Branch
+        if: always()
+        run: |
+          # Default workflow user config
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          
+          # Checkout the dedicated stats branch
+          git checkout ci-stats || git checkout -b ci-stats
+          mkdir -p test-badges                                                              # Create folder if missing
+          cp ci-stats/*.json test-badges/                                                   # Copy reports into the folder
+          
+          # Add and Push changes to ci-stats
+          git add .                                                                         
+          git commit -m "Update test badge JSONs from CI" || echo "No changes"          
+          git push origin ci-stats --force

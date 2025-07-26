@@ -13,4 +13,13 @@
     - ![Codecov](https://img.shields.io/badge/Codecov-Integrated-purple?style=flat&logo=codecov&logoColor=white)
 
 ## Test Results By Package
-- **Data Structures**
+<h3>Data Structures</h3>
+
+| Class | Test Status |
+|-------|-------------|
+| ArrayTest | ![ArrayTest](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/LearningRiven/AlgorithmPractice/ci-stats/test-badges/ArrayTest.json&style=plastic&logo=junit5&logoColor=white) |
+| HashMapTest | ![HashMapTest](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/LearningRiven/AlgorithmPractice/ci-stats/test-badges/HashMapTest.json&style=plastic&logo=junit5&logoColor=white) |
+| LinkedListTest | ![LinkedListTest](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/LearningRiven/AlgorithmPractice/ci-stats/test-badges/LinkedListTest.json&style=plastic&logo=junit5&logoColor=white) |
+| NodeTest | ![NodeTest](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/LearningRiven/AlgorithmPractice/ci-stats/test-badges/NodeTest.json&style=plastic&logo=junit5&logoColor=white) |
+| QueueTest | ![QueueTest](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/LearningRiven/AlgorithmPractice/ci-stats/test-badges/QueueTest.json&style=plastic&logo=junit5&logoColor=white) |
+| StackTest | ![StackTest](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/LearningRiven/AlgorithmPractice/ci-stats/test-badges/StackTest.json&style=plastic&logo=junit5&logoColor=white) |

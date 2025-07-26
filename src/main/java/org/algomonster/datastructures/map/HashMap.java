@@ -23,17 +23,17 @@ public class HashMap<K, V> {
                 entry.setValue(value);
             }
             else{
-                buckets[0].setPrevious(entry);
-                entry.setNext(buckets[0]);
+                buckets[index].setPrevious(entry);
+                entry.setNext(buckets[index]);
                 this.size++;
             }
         }
         else{
             entry = new MapEntry<>(key,value);
             if(buckets[index] != null){
-                buckets[0].setPrevious(entry);
-                entry.setNext(buckets[0]);
-                buckets[0] = entry;
+                buckets[index].setPrevious(entry);
+                entry.setNext(buckets[index]);
+                buckets[index] = entry;
             }
             else{
                 buckets[index] = entry;

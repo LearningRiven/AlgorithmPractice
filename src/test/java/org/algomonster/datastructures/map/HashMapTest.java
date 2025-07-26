@@ -94,22 +94,32 @@ class HashMapTest {
     @Test
     //Tests removing, handles null and missing as well as size changes
     void testRemove(){
-        HashMap<String,Integer> map = new HashMap<>();
-        map.put("first",1);
-        map.put("second",2);
+        HashMap<Integer,Integer> map = new HashMap<>();
 
-        //Initial state
-        assertEquals(2, map.size());
-        assertNotNull(map.get("first"));
-        assertNotNull(map.get("second"));
+        //Test remove on empty hashmap
+        assertEquals(0, map.size());
+        assertNull(map.remove(0));
+        assertEquals(0, map.size());
 
         //Test removing
-        assertEquals(2, map.remove("second"));
-        assertEquals(1, map.size());
+        map.put(0,0);
+        map.put(16,0);
+        map.put(32,0);
+        map.put(64,0);
+        map.put(80,0);
+        map.put(1,0);
+        map.put(17,0);
 
-        //Test removing null
-        assertNull(map.remove("second"));
-        assertEquals(1, map.size());
+        //Collisions at the start, map buckets are built backwards
+        assertEquals(7, map.size());
+        assertEquals(0,map.remove(80)); //remove the first element
+        assertEquals(0,map.remove(0)); //remove the last element
+        assertEquals(0,map.remove(32)); //remove the middle element
+        assertEquals(4, map.size()); //verify only the right bucket was targeted
+        //Empty a bucket
+        assertEquals(0,map.remove(17));
+        assertEquals(0,map.remove(1));
+        assertEquals(2, map.size()); //verify size still good
     }
 
     @Test

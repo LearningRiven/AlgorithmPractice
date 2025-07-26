@@ -13,7 +13,7 @@ public class LinkedList<T> {
 
     public void addFirst(T data){
         //Create the new node
-        Node<T> newNode = new Node<T>(data);
+        Node<T> newNode = new Node<>(data);
         newNode.setNext(this.head);
         this.head = newNode;
         //Update size
@@ -22,7 +22,7 @@ public class LinkedList<T> {
 
     public void addLast(T data){
         //Create the new node
-        Node<T> newNode = new Node<T>(data);
+        Node<T> newNode = new Node<>(data);
 
         //Place it last
         Node<T> cur = this.head;
@@ -90,7 +90,7 @@ public class LinkedList<T> {
         sb.append(cur.toString());
         while(cur.getNext() != null){
             cur = cur.getNext();
-            sb.append(" -> " + cur.toString());
+            sb.append(" -> ").append(cur.toString());
         }
 
         sb.append(" -> null");

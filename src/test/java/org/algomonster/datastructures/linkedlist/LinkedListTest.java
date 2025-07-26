@@ -3,10 +3,10 @@ package org.algomonster.datastructures.linkedlist;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class LinkedListTest {
+class LinkedListTest {
 
     @Test
-    public void testAddingFirstAndSizeString(){
+    void testAddingFirstAndSizeString(){
         LinkedList<String> list = new LinkedList<String>();
 
         //Empty
@@ -23,7 +23,7 @@ public class LinkedListTest {
     }
 
     @Test
-    public void testAddingLastAndSizeString(){
+    void testAddingLastAndSizeString(){
         LinkedList<String> list = new LinkedList<String>();
 
         //Empty
@@ -40,7 +40,7 @@ public class LinkedListTest {
     }
 
     @Test
-    public void testRemovingFirstAndSizeStringSingleElement(){
+    void testRemovingFirstAndSizeStringSingleElement(){
         String data;
 
         LinkedList<String> list = new LinkedList<String>();
@@ -54,7 +54,7 @@ public class LinkedListTest {
     }
 
     @Test
-    public void testRemovingFirstAndSizeStringTwoElements(){
+    void testRemovingFirstAndSizeStringTwoElements(){
         String data;
 
         LinkedList<String> list = new LinkedList<String>();
@@ -75,7 +75,7 @@ public class LinkedListTest {
     }
 
     @Test
-    public void testRemovingFirstAndSizeStringThreeElements(){
+    void testRemovingFirstAndSizeStringThreeElements(){
         String data;
 
         LinkedList<String> list = new LinkedList<String>();
@@ -102,7 +102,7 @@ public class LinkedListTest {
     }
 
     @Test
-    public void testRemovingLastAndSizeStringSingleElement(){
+    void testRemovingLastAndSizeStringSingleElement(){
         String data;
 
         LinkedList<String> list = new LinkedList<String>();
@@ -116,7 +116,7 @@ public class LinkedListTest {
     }
 
     @Test
-    public void testRemovingLastAndSizeStringTwoElements(){
+    void testRemovingLastAndSizeStringTwoElements(){
         String data;
 
         LinkedList<String> list = new LinkedList<String>();
@@ -137,7 +137,7 @@ public class LinkedListTest {
     }
 
     @Test
-    public void testRemovingLastAndSizeStringThreeElements(){
+    void testRemovingLastAndSizeStringThreeElements(){
         String data;
 
         LinkedList<String> list = new LinkedList<String>();
@@ -164,7 +164,7 @@ public class LinkedListTest {
     }
 
     @Test
-    public void testSize(){
+    void testSize(){
         LinkedList<String> list = new LinkedList<String>();
 
         assertEquals(0,list.size(),"Empty");
@@ -183,7 +183,7 @@ public class LinkedListTest {
     }
 
     @Test
-    public void testExceptionHandling(){
+    void testExceptionHandling(){
         LinkedList<String> list = new LinkedList<String>();
         assertThrows(IllegalStateException.class,list::removeFirst, "removeFirst on empty throws");
         assertThrows(IllegalStateException.class,list::removeLast, "removeLast on empty throws");

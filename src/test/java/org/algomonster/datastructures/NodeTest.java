@@ -3,10 +3,10 @@ package org.algomonster.datastructures;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class NodeTest {
+class NodeTest {
 
     @Test
-    public void testSetGetNext(){
+    void testSetGetNext(){
         Node<String> n1 = new Node<>(null);
         Node<String> n2 = new Node<>(null);
 
@@ -24,7 +24,7 @@ public class NodeTest {
     }
 
     @Test
-    public void testSetGetData(){
+    void testSetGetData(){
         Node<String> n1 = new Node<String>(null);
         assertNull(n1.getData());
         n1.setData("test");
@@ -33,7 +33,7 @@ public class NodeTest {
     }
 
     @Test
-    public void testNextConstructor(){
+    void testNextConstructor(){
         Node<String> tail = new Node<String>("end");
         Node<String> head = new Node<String>("start",tail);
         assertEquals("start",head.getData());
@@ -42,7 +42,7 @@ public class NodeTest {
     }
 
     @Test
-    public void testToString(){
+    void testToString(){
         Node<String> n1 = new Node<String>("test1");
 
         assertEquals("{test1}",n1.toString());

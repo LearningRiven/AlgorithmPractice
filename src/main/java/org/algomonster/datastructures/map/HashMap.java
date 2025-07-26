@@ -40,21 +40,23 @@ public class HashMap<K, V> {
         // Remove all entries
     }
 
+
+
     /**
      * MapEntry structure for the hashmap class
      */
     private static class MapEntry<K,V>{
         private final K key;
         private V value;
-        public MapEntry<K,V> next;
+        private MapEntry<K,V> next;
 
-        private MapEntry(){
+        public MapEntry(){
             this.key = null;
             this.value = null;
             this.next = null;
         }
 
-        private MapEntry(K key, V value){
+        public MapEntry(K key, V value){
             this.key = key;
             this.value = value;
             this.next = null;
@@ -79,6 +81,14 @@ public class HashMap<K, V> {
         @Override
         public String toString(){
             return this.key + "=" + this.value;
+        }
+
+        @Override
+        //Basic hashing function, follows standard JDK practices while being hashmap K V specific
+        public int hashCode(){
+            int result = this.key == null ? 0 : this.key.hashCode();
+            //Basically selects a prime number, multiplies it by the key hashcode, and adds the value hashcode to the final value
+            return 31 * result + (value == null ? 0 : value.hashCode());
         }
     }
 }

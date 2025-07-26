@@ -24,11 +24,11 @@ public class Array<T> {
     }
 
     public void setHead(T data){
-        this.head = new Node<T>(data);
+        this.head = new Node<>(data);
     }
 
     public void setTail(T data){
-        this.tail = new Node<T>(data);
+        this.tail = new Node<>(data);
     }
 
 }

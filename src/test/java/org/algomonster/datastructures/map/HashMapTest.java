@@ -3,11 +3,11 @@ package org.algomonster.datastructures.map;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class HashMapTest {
+class HashMapTest {
 
     @Test
     //Tests the initial state of the map
-    public void testInitialization(){
+    void testInitialization(){
         HashMap<String,Integer> map = new HashMap<String,Integer>();
         assertNotNull(map);
         assertTrue(map.isEmpty());
@@ -16,7 +16,7 @@ public class HashMapTest {
 
     @Test
     //Tests both put and get as well as size
-    public void testPutGetInsert(){
+    void testPutGetInsert(){
         HashMap<String,Integer> map = new HashMap<String,Integer>();
 
         //Single Insert
@@ -34,7 +34,7 @@ public class HashMapTest {
 
     @Test
     //Tests how overwriting works with put and get as well as size
-    public void testPutGetOverwrite(){
+    void testPutGetOverwrite(){
         HashMap<String,Integer> map = new HashMap<String,Integer>();
 
         //Single Insert
@@ -52,7 +52,7 @@ public class HashMapTest {
 
     @Test
     //Tests how null values are handled with put and get as well as size
-    public void testPutGetNull(){
+    void testPutGetNull(){
         HashMap<String,Integer> map = new HashMap<String,Integer>();
         map.put("first",null);
 
@@ -64,14 +64,14 @@ public class HashMapTest {
 
     @Test
     //Tests how collisions work with put and get as well as size
-    public void testPutCollisions(){
+    void testPutCollisions(){
         HashMap<String,Integer> map = new HashMap<String,Integer>();
         assertTrue(false); //Place holder
     }
 
     @Test
     //Tests removing, handles null and missing as well as size changes
-    public void testRemove(){
+    void testRemove(){
         HashMap<String,Integer> map = new HashMap<String,Integer>();
         map.put("first",1);
         map.put("second",2);
@@ -92,7 +92,7 @@ public class HashMapTest {
 
     @Test
     //Tests checking whether a map contains a key or not
-    public void testContains(){
+    void testContains(){
         HashMap<String,Integer> map = new HashMap<String,Integer>();
         map.put("first",1);
         map.put("second",2);
@@ -112,7 +112,7 @@ public class HashMapTest {
 
     @Test
     //Tests whether clear returns to the initial state of the map
-    public void testClear(){
+    void testClear(){
         HashMap<String,Integer> map = new HashMap<String,Integer>();
         map.put("first",1);
         map.put("second",2);

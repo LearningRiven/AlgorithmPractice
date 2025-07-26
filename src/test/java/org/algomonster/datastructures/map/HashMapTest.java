@@ -47,19 +47,29 @@ class HashMapTest {
         map.put("first",2);
         assertEquals(1, map.size());
         assertFalse(map.isEmpty());
-        assertEquals(1,map.get("first"));
+        assertEquals(2,map.get("first"));
     }
 
     @Test
     //Tests how null values are handled with put and get as well as size
     void testPutGetNull(){
         HashMap<String,Integer> map = new HashMap<>();
-        map.put("first",null);
+        map.put("first",1);
+        map.put("second",null);
+        map.put(null,3);
 
+        //Correct size
+        assertEquals(3,map.size());
+
+        //Structure
+        assertNotNull(map.get("first"));
         assertNull(map.get("second"));
-        assertTrue(map.containsKey("first"));
-        assertNull(map.get("first"));
-        assertEquals(1,map.size());
+        assertNotNull(map.get(null));
+
+        //Values
+        assertEquals(1,map.get("first"));
+        assertEquals(null,map.get("second"));
+        assertEquals(3,map.get(null));
     }
 
     @Test

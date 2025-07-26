@@ -41,6 +41,7 @@ jobs:
         with:
           token: ${{ secrets.CODECOV_TOKEN }}  # Optional for public repos, but use it
           files: ./target/site/jacoco/jacoco.xml  # Main JaCoCo report; add more if needed (e.g., ,./target/site/jacoco-ut.xml)
+          verbose: true  # Debug logs
           fail_ci_if_error: false  # Don't fail build on upload issues
 
       - name: Generate Test Badge JSONs

@@ -36,13 +36,18 @@ jobs:
 #            -Dsonar.token=${{ secrets.SONAR_TOKEN }}\
 #            -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
 
+      - name: Debug Jacoco Report
+        run: |
+          ls -la target/site/jacoco || echo "Jacoco directory not found - check if report goal ran"
+          cat target/site/jacoco/jacoco.xml || echo "jacoco.xml not found or empty - verify tests cover code"
+
       - name: Upload Coverage to Codecov
         uses: codecov/codecov-action@v4
         with:
           token: ${{ secrets.CODECOV_TOKEN }}  # Optional for public repos, but use it
           files: ./target/site/jacoco/jacoco.xml  # Main JaCoCo report; add more if needed (e.g., ,./target/site/jacoco-ut.xml)
           verbose: true  # Debug logs
-          fail_ci_if_error: false  # Don't fail build on upload issues
+          fail_ci_if_error: true  # Don't fail build on upload issues
 
       - name: Generate Test Badge JSONs
         if: always() # Should always run

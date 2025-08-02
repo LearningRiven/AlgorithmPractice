@@ -1,7 +1,5 @@
 ## Intro
 <p>My attempt at working through the content offered on algo.monster, a platform that prepares you for technical interviews.</p>
-<p>My approach is to go back to the fundamentals of engineering and recreate structures from scratch, then use those same structures (maybe enchancing them) in order to progress 
-through the algorithm portion and then eventually solve leetcode problems</p>
 <p>Another aspect of this project is to use x.ai Grok in order to assist me in developing, mimicking a real world scenario we are moving towards where AI assisted programming is becoming popular</p>
 
 ## Technologies/Credits
@@ -38,3 +36,9 @@ through the algorithm portion and then eventually solve leetcode problems</p>
 | HashMapTest | ![HashMapTest](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/LearningRiven/AlgorithmPractice/ci-stats/test-badges/HashMapTest.json&logo=junit5&label=Tests%20Passing&labelColor=gray)      |
 | QueueTest   | ![QueueTest](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/LearningRiven/AlgorithmPractice/ci-stats/test-badges/QueueTest.json&logo=junit5&label=Tests%20Passing&labelColor=gray)          |
 | StackTest   | ![StackTest](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/LearningRiven/AlgorithmPractice/ci-stats/test-badges/StackTest.json&logo=junit5&label=Tests%20Passing&labelColor=gray)          |
+
+<h3>Algorithms - In Place Sorting</h3>
+
+| Class       | Time Complexity | Test Status                                                                                                                                                                                                                 |
+|-------------|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Brute Force | O(n^2)          | ![Brute Force](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/LearningRiven/AlgorithmPractice/ci-stats/test-badges/BruteForceInPlaceSortTest.json&logo=junit5&label=Tests%20Passing&labelColor=gray) |

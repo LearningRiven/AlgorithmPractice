@@ -1,5 +1,6 @@
 package org.algomonster.datastructures.map;
 
+import java.util.Map;
 import java.util.Objects;
 
 public class HashMap<K, V> {
@@ -8,16 +9,18 @@ public class HashMap<K, V> {
     private int size;
     private static final int INITIAL_CAPACITY = 16; //power of 2 for & masking
     private static final float LOAD_FACTOR = 0.75f;
+    private int threshold;
 
     public HashMap() {
         this.buckets = new MapEntry[INITIAL_CAPACITY];
         this.size = 0;
+        this.threshold = (int) (INITIAL_CAPACITY * LOAD_FACTOR);
     }
 
     public void put(K key, V value) {
         //Index for the bucket, use 0 if key is null, power of 2 capacity allows bitwise operation instead of modulo for efficiency
         //Fixed 0 for null keys, null values dont matter
-        int index = this.getIndex(key);
+        int index = this.getIndex(key, this.buckets);
         MapEntry<K,V> entry = this.traverseBucket(buckets[index], key);
 
         if(entry != null){
@@ -35,11 +38,16 @@ public class HashMap<K, V> {
             }
             this.size++;
         }
+
+        //Do we need to resize?
+        if(this.size > threshold){
+            resize();
+        }
     }
 
     public V get(K key) {
         V value;
-        int index = this.getIndex(key);
+        int index = this.getIndex(key, this.buckets);
 
         //Traverse the bucket
         MapEntry<K,V> head = this.traverseBucket(buckets[index], key);
@@ -56,7 +64,7 @@ public class HashMap<K, V> {
 
     public V remove(K key) {
         V value;
-        int index = this.getIndex(key);
+        int index = this.getIndex(key, this.buckets);
 
         //Traverse the bucket
         MapEntry<K,V> head = this.traverseBucket(buckets[index], key);
@@ -89,7 +97,7 @@ public class HashMap<K, V> {
 
     public boolean containsKey(K key) {
         //Traverse the bucket
-        int index = this.getIndex(key);
+        int index = this.getIndex(key, this.buckets);
         MapEntry<K,V> head = this.traverseBucket(buckets[index], key);
 
         return head != null;
@@ -98,6 +106,10 @@ public class HashMap<K, V> {
     public int size() {
         // Return number of entries
         return this.size;
+    }
+
+    public int getCapacity(){
+        return buckets.length;
     }
 
     public boolean isEmpty() {
@@ -113,10 +125,10 @@ public class HashMap<K, V> {
     }
 
     //Internal use only
-    private int getIndex(K key){
+    private int getIndex(K key, MapEntry<K,V>[] buckets){
         //Index for the bucket, use 0 if key is null, power of 2 capacity allows bitwise operation instead of modulo for efficiency
         //Fixed 0 for null keys, null values dont matter
-        return (key == null ? 0 : key.hashCode()) & (this.buckets.length - 1);
+        return (key == null ? 0 : key.hashCode()) & (buckets.length - 1);
     }
 
     private MapEntry<K,V> traverseBucket(MapEntry<K,V> head, K key){
@@ -132,6 +144,43 @@ public class HashMap<K, V> {
         }
 
         return null;
+    }
+
+    private void resize(){
+        int oldCapacity = buckets.length;
+        int newCapacity = oldCapacity << 1; //shift the bit one to the left, same as * 2
+        MapEntry<K,V>[] newBucket = new MapEntry[newCapacity]; //Create the new bucket
+
+        //Move entries from old bucket to new bucket
+        for(int k = 0; k < oldCapacity; k++){
+            //Move this chain to the appropriate index
+            MapEntry<K,V> entry = buckets[k];
+
+            //Traverse the chain
+            while(entry != null){
+                //Safe the next entry before doing the logic
+                MapEntry<K,V> next = entry.getNext();
+                int index = this.getIndex(entry.key, newBucket);
+
+                //Add to the new chain, first handle previous
+                if(newBucket[index] != null){
+                    entry.setPrevious(null); //new head so null is previous
+                    newBucket[index].setPrevious(entry);
+                }
+                //move the current entry to the front
+                entry.setNext(newBucket[index]);
+                newBucket[index] = entry;
+
+                //Update the pointer
+                entry = next;
+            }
+        }
+
+        //Update the bucket to be the new one
+        this.buckets = newBucket;
+
+        //Update the threshold
+        this.threshold = (int) (newCapacity * LOAD_FACTOR);
     }
 
     /**

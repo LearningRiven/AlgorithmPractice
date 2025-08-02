@@ -2,6 +2,7 @@ package org.algomonster.datastructures.map;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+import org.algomonster.datastructures.Node;
 
 class HashMapTest {
 
@@ -52,7 +53,7 @@ class HashMapTest {
 
     @Test
     //Tests how null values are handled with put and get as well as size
-    void testPutGetNull(){
+    void testPutGetContainsNull(){
         HashMap<String,Integer> map = new HashMap<>();
         map.put("first",1);
         map.put("second",null);
@@ -70,6 +71,10 @@ class HashMapTest {
         assertEquals(1,map.get("first"));
         assertEquals(null,map.get("second"));
         assertEquals(3,map.get(null));
+
+        //Test overwrite
+        map.put(null,4);
+        assertEquals(4,map.get(null));
     }
 
     @Test
@@ -120,6 +125,21 @@ class HashMapTest {
         assertEquals(0,map.remove(17));
         assertEquals(0,map.remove(1));
         assertEquals(2, map.size()); //verify size still good
+
+        //Manually empty the rest of the map to make sure no negative size
+        Integer sixtyFour = map.remove(64);
+        Integer sixteen = map.remove(16);
+        assertEquals(0, map.size());
+        assertTrue(map.isEmpty());
+        map.remove(0);
+        map.remove(16);
+        map.remove(32);
+        map.remove(64);
+        map.remove(80);
+        map.remove(1);
+        map.remove(17);
+        assertEquals(0,map.size());
+        assertTrue(map.isEmpty());
     }
 
     @Test
@@ -140,6 +160,11 @@ class HashMapTest {
 
         //Test the size
         assertEquals(3,map.size());
+
+        //Test contains
+        map.put(null,5);
+        assertTrue(map.containsKey(null));
+        assertFalse(map.containsKey("blah"));
     }
 
     @Test
@@ -161,5 +186,136 @@ class HashMapTest {
         assertNotNull(map);
         assertEquals(0, map.size());
         assertTrue(map.isEmpty());
+    }
+
+    @Test
+    void testClearLarge(){
+        HashMap<String,Integer> map = new HashMap<>();
+        for(int j = 0; j < 50; j++){
+            map.put("key " + j, j);
+        }
+
+        assertEquals(50, map.size());
+        assertNull(map.get("key 100")); // Spotcheck non existant
+        map.clear();
+        assertEquals(0, map.size());
+        assertTrue(map.isEmpty());
+        assertNull(map.get("key 0")); // Spot-check a few
+        assertNull(map.get("key 3")); // Spot-check a few
+    }
+
+    @Test
+    void testGeneric(){
+        HashMap<Integer,Node<Integer>> map = new HashMap<>();
+        Node<Integer> one = new Node<Integer>(1);
+        Node<Integer> two = new Node<Integer>(2);
+        Node<Integer> three = new Node<Integer>(3);
+
+        map.put(1,one);
+        map.put(2,two);
+        map.put(3,three);
+
+        assertEquals(3,map.size());
+        assertFalse(map.isEmpty());
+
+        assertEquals(one, map.get(1));
+        assertEquals(3, map.size());
+        assertEquals(two, map.remove(2));
+        assertEquals(2, map.size());
+        assertTrue(map.containsKey(3));
+        assertFalse(map.isEmpty());
+    }
+
+    @Test
+    void testResizing(){
+        HashMap<String, Integer> map = new HashMap<>();
+
+        // Verify initial state
+        assertEquals(16, map.getCapacity()); // INITIAL_CAPACITY
+        assertEquals(0, map.size());
+
+        // Insert up to threshold (12 elements for 16*0.75=12)
+        for (int i = 0; i < 12; i++) {
+            map.put("key" + i, i);
+        }
+        assertEquals(12, map.size());
+        assertEquals(16, map.getCapacity()); // No resize yet
+
+        // Insert one more to trigger resize (13 > 12)
+        map.put("key12", 12);
+        assertEquals(13, map.size());
+        assertEquals(32, map.getCapacity()); // Should double to 32
+
+        // Verify all elements are still accessible post-resize
+        for (int i = 0; i < 13; i++) {
+            assertEquals(i, map.get("key" + i));
+        }
+
+        // Edge case: Add null key before/after resize
+        map.put(null, -1);
+        assertEquals(14, map.size());
+        assertEquals(32, map.getCapacity()); // No further resize yet
+        assertEquals(-1, map.get(null));
+
+        // Force another resize (insert up to 25 for 32*0.75=24)
+        for (int i = 13; i < 25; i++) {
+            map.put("key" + i, i);
+        }
+        assertEquals(26, map.size()); // 14 previous + 12 new = 26
+        assertEquals(64, map.getCapacity()); // Doubled again
+
+        // Collision during resize: Use keys with same hash (like "Aa" and "BB")
+        map.put("Aa", 100);
+        map.put("BB", 200);
+        assertEquals(100, map.get("Aa"));
+        assertEquals(200, map.get("BB"));
+    }
+
+    @Test
+    void testLargeInserts(){
+        HashMap<Integer, String> map = new HashMap<>();
+
+        // Insert 1000 elements (will trigger multiple resizes)
+        int numInserts = 1000;
+        for (int i = 0; i < numInserts; i++) {
+            map.put(i, "value" + i);
+        }
+        assertEquals(numInserts, map.size());
+        assertTrue(map.getCapacity() >= 1024); // After multiple doubles (16->32->64->128->256->512->1024)
+
+        // Verify retrieval and contains (spot-check 10%)
+        for (int i = 0; i < numInserts; i += 10) {
+            assertTrue(map.containsKey(i));
+            assertEquals("value" + i, map.get(i));
+        }
+        assertFalse(map.containsKey(numInserts + 1)); // Non-existent
+
+        // Overwrites in large set
+        map.put(500, "overwritten");
+        assertEquals("overwritten", map.get(500));
+        assertEquals(numInserts, map.size()); // Size unchanged
+
+        // Null handling in large set
+        map.put(null, "nullValue");
+        map.put(1001, null);
+        assertEquals(numInserts + 2, map.size()); // Only +1 for null key
+        assertEquals("nullValue", map.get(null));
+        assertNull(map.get(1001));
+
+        // Removals in large set
+        for (int i = 0; i < 100; i += 2) { // Remove evens
+            assertEquals("value" + i, map.remove(i));
+        }
+        assertEquals(numInserts + 2 - 50, map.size()); // Removed 50
+        assertNull(map.get(0)); // Spot-check removal
+
+        // Collision stress: Insert many with same hash bucket
+        // Assuming simple hash, but for test, use keys like multiples of 16 (index 0)
+        for (int i = 0; i < 50; i++) {
+            map.put(i * 16, "collision" + i);
+        }
+        for (int i = 0; i < 50; i += 5) {
+            assertEquals("collision" + i, map.get(i * 16));
+        }
     }
 }

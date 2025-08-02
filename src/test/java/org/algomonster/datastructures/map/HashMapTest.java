@@ -7,6 +7,57 @@ import org.algomonster.datastructures.Node;
 class HashMapTest {
 
     @Test
+    void testMapEntryEquals() {
+        HashMap.MapEntry<String, Integer> entry1 = new HashMap.MapEntry<>("key", 1);
+        HashMap.MapEntry<String, Integer> entry2 = new HashMap.MapEntry<>("key", 1);
+        HashMap.MapEntry<String, Integer> entry3 = new HashMap.MapEntry<>("diff", 2);
+        HashMap.MapEntry<String, Integer> nullKey = new HashMap.MapEntry<>(null, 1);
+        HashMap.MapEntry<String, Integer> nullValue = new HashMap.MapEntry<>("key", null);
+
+        // Reflexive
+        assertEquals(entry1, entry1);
+
+        // Symmetric
+        assertEquals(entry1, entry2);
+        assertEquals(entry2, entry1);
+
+        // Transitive (via equals)
+        HashMap.MapEntry<String, Integer> entry4 = new HashMap.MapEntry<>("key", 1);
+        assertEquals(entry1, entry4);
+        assertEquals(entry2, entry4);
+
+        // Not equal
+        assertNotEquals(entry1, entry3);
+        assertNotEquals(entry1, nullKey);
+        assertNotEquals(entry1, nullValue);
+        assertNotEquals(nullKey, nullValue);
+
+        // Null handling
+        assertNotEquals(entry1, null);
+        assertEquals(nullKey, new HashMap.MapEntry<>(null, 1)); // Same null key, same value
+        assertNotEquals(nullKey, new HashMap.MapEntry<>(null, 2)); // Diff value
+    }
+
+    @Test
+    void testMapEntryHashCode() {
+        HashMap.MapEntry<String, Integer> entry1 = new HashMap.MapEntry<>("key", 1);
+        HashMap.MapEntry<String, Integer> entry2 = new HashMap.MapEntry<>("key", 1);
+        HashMap.MapEntry<String, Integer> nullKey = new HashMap.MapEntry<>(null, 1);
+        HashMap.MapEntry<String, Integer> nullValue = new HashMap.MapEntry<>("key", null);
+
+        // Consistent with equals
+        assertEquals(entry1.hashCode(), entry2.hashCode());
+
+        // Null handling
+        assertEquals(31 * 0 + (nullKey == null ? 0 : nullKey.hashCode()), nullKey.hashCode()); // 0 for null key + value hash
+        assertEquals(31 * "key".hashCode() + (null == null ? 0 : nullKey.hashCode()), nullValue.hashCode()); // key hash * 31 + 0 for null value
+
+        // Changes affect hash
+        assertNotEquals(entry1.hashCode(), new HashMap.MapEntry<>("diff", 1).hashCode());
+        assertNotEquals(entry1.hashCode(), new HashMap.MapEntry<>("key", 2).hashCode());
+    }
+
+    @Test
     //Tests the initial state of the map
     void testInitialization(){
         HashMap<String,Integer> map = new HashMap<>();
@@ -49,6 +100,18 @@ class HashMapTest {
         assertEquals(1, map.size());
         assertFalse(map.isEmpty());
         assertEquals(2,map.get("first"));
+
+        //Make sure if conditions are hit correctly
+        // Identity vs equals
+        String key1 = new String("test"); // New object
+        String key2 = new String("test"); // Separate but equals(true)
+        map.put(key1, 10);
+        assertEquals(10, map.get(key1)); // Hits == (same object)
+        assertEquals(10, map.get(key2)); // Hits equals (different object)
+
+        // Null key
+        map.put(null, 20);
+        assertEquals(20, map.get(null)); // Hits key == null branch
     }
 
     @Test
@@ -140,6 +203,12 @@ class HashMapTest {
         map.remove(17);
         assertEquals(0,map.size());
         assertTrue(map.isEmpty());
+
+        // Remove null from middle of chain
+        map.put(0, 0); // Index 0
+        map.put(16, 16); // Collides at 0
+        map.put(null, null); // Fixed at 0, add to chain
+        assertEquals(null, map.remove(null)); // Remove middle (assuming order)
     }
 
     @Test

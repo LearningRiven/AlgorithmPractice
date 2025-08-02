@@ -1,6 +1,5 @@
 package org.algomonster.datastructures.map;
 
-import java.util.Map;
 import java.util.Objects;
 
 public class HashMap<K, V> {
@@ -186,17 +185,11 @@ public class HashMap<K, V> {
     /**
      * MapEntry structure for the hashmap class
      */
-    private static class MapEntry<K,V>{
+    static class MapEntry<K,V>{
         private final K key;
         private V value;
         private MapEntry<K,V> next;
         private MapEntry<K,V> previous;
-
-        public MapEntry(){
-            this.key = null;
-            this.value = null;
-            this.next = null;
-        }
 
         public MapEntry(K key, V value){
             this.key = key;

@@ -10,10 +10,8 @@
 
 - **Code Quality**
   - <img src="https://img.shields.io/badge/SonarCloud-Integrated-orange?style=flat&logo=sonarqubecloud&logoColor=white" height="20">
-  - <img src="https://img.shields.io/badge/Codecov-Integrated-purple?style=flat&logo=codecov&logoColor=white" height="20">
 
 ## Coverage (Overall)
-![Overall Coverage (Codecov)](https://codecov.io/gh/LearningRiven/AlgorithmPractice/branch/main/graph/badge.svg)
 ![Overall Coverage (SonarCloud)](https://sonarcloud.io/api/project_badges/measure?project=LearningRiven_AlgorithmPractice&metric=coverage)
 
 ## Test Results By Package

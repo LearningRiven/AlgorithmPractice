@@ -39,6 +39,6 @@
 
 <h3>Algorithms - Sorting</h3>
 
-| Class                 | Type        | Time Complexity | Test Status                                                                                                                                                                                                                 |
-|-----------------------|-------------|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| BruteForceInPlaceSort | Brute Force | O(n^2)          | ![Brute Force](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/LearningRiven/AlgorithmPractice/ci-stats/test-badges/BruteForceInPlaceSortTest.json&logo=junit5&label=Tests%20Passing&labelColor=gray) |
+| Class                     | Type        | Time Complexity | Test Status                                                                                                                                                                                                                 |
+|---------------------------|-------------|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| BruteForceInPlaceSortTest | Brute Force | O(n^2)          | ![Brute Force](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/LearningRiven/AlgorithmPractice/ci-stats/test-badges/BruteForceInPlaceSortTest.json&logo=junit5&label=Tests%20Passing&labelColor=gray) |

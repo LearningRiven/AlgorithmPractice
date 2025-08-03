@@ -26,8 +26,10 @@
 ![Overall Coverage (SonarCloud)](https://sonarcloud.io/api/project_badges/measure?project=LearningRiven_AlgorithmPractice&metric=vulnerabilities)\
 ![Overall Coverage (SonarCloud)](https://sonarcloud.io/api/project_badges/measure?project=LearningRiven_AlgorithmPractice&metric=coverage)
 
-## Test Results By Package
+## Packages
 ### Data Structures
+
+##### The Goal with this package was to explore the common data structures used. I chose to recreate them from scratch in order to make sure I understand exactly the purpose of each and how they work.
 
 | Class          | Test Status                                                                                                                                                                                                         |
 |:---------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -37,7 +39,11 @@
 | QueueTest      | ![QueueTest](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/LearningRiven/AlgorithmPractice/ci-stats/test-badges/QueueTest.json&logo=junit5&label=Tests%20Passing&labelColor=gray)           |
 | StackTest      | ![StackTest](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/LearningRiven/AlgorithmPractice/ci-stats/test-badges/StackTest.json&logo=junit5&label=Tests%20Passing&labelColor=gray)           |
 
-### Algorithms - Sorting
+### Algorithms
+
+##### The Goal with this package is to first create a brute force approach for both sorting and searching through structures. Then as I added a new algorithm for either, I analyzed the costs and benefits associated with each approach when compared to the Brute Force approach I initially chose
+
+#### Sorting - Algorithm Implementations/Tests
 
 | Class            |    Type    |                                                                                                                                         Test Status                                                                                                                                         | <sub>Space</sub> |      <sub>Best</sub>       |     <sub>Average</sub>     |      <sub>Worst</sub>      |
 |:-----------------|:----------:|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:----------------:|:--------------------------:|:--------------------------:|:--------------------------:|
@@ -47,8 +53,7 @@
 
 <sub>*** O - Upper Bound, Θ - Tight Bound (exact asymptotic growth), Ω - Lower Bound</sub>
 
-##### Benefits Over Brute Force
-
+#### Sorting - Benefit Analysis Over Brute Force
 
 |    Type     | Benefits                                                                               |
 |:-----------:|:-------------------------------------------------------------------------------------------------------------------------------|

@@ -39,13 +39,22 @@
 
 ### Algorithms - Sorting
 
-| Class            |    Type    |                                                                                                                                         Test Status                                                                                                                                         | <sub>Space</sub> |       <sub>Best</sub>       |     <sub>Average</sub>      |      <sub>Worst</sub>       | Benefits<br/><sub>(When compared to brute)</sub>                                                                                                          |
-|:-----------------|:----------:|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:----------------:|:----------------:|:----------------:|:----------------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| BruteForceTest   | BruteForce |                                      ![Brute Force](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/LearningRiven/AlgorithmPractice/ci-stats/test-badges/BruteForceTest.json&logo=junit5&label=Tests%20Passing&labelColor=gray)                                       |       Θ(1)       | Θ(n<sup>2</sup>) | Θ(n<sup>2</sup>) | Θ(n<sup>2</sup>) | <sub>Non-Adaptive <br/> Up to O(n<sup>2</sup>) swaps worst-case<br/> Always O(n<sup>2</sup>) compares. <br/> Unstable.</sub>                              |
-| InsertionSortTest| Insertion  |                                   ![Insertion Sort](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/LearningRiven/AlgorithmPractice/ci-stats/test-badges/InsertionSortTest.json&logo=junit5&label=Tests%20Passing&labelColor=gray)                                    |       Θ(1)       |       Θ(n)       | Θ(n<sup>2</sup>) | Θ(n<sup>2</sup>) | <sub>Adaptive <br/> Θ(n) time best-case (nearly-sorted) <br/> Fewer shifts O(n) best vs. brute's O(n<sup>2</sup>) swaps. <br/> Stable.</sub>              |
-| SelectionSortTest| Selection  |                                   ![Selection Sort](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/LearningRiven/AlgorithmPractice/ci-stats/test-badges/SelectionSortTest.json&logo=junit5&label=Tests%20Passing&labelColor=gray)                                    |       Θ(1)       | Θ(n<sup>2</sup>) | Θ(n<sup>2</sup>) | Θ(n<sup>2</sup>) | <sub>Non-Adaptive <br/> 0 swaps best-case (O(n) max) vs. brute's O(n<sup>2</sup>); <br/> always n(n-1)/2 compares (~half of brute). <br/> Unstable.</sub> |
+| Class            |    Type    |                                                                                                                                         Test Status                                                                                                                                         | <sub>Space</sub> |      <sub>Best</sub>       |     <sub>Average</sub>     |      <sub>Worst</sub>      |
+|:-----------------|:----------:|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:----------------:|:--------------------------:|:--------------------------:|:--------------------------:|
+| BruteForceTest   | BruteForce |                                      ![Brute Force](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/LearningRiven/AlgorithmPractice/ci-stats/test-badges/BruteForceTest.json&logo=junit5&label=Tests%20Passing&labelColor=gray)                                       |       Θ(1)       |      Θ(n<sup>2</sup>)      |      Θ(n<sup>2</sup>)      |      Θ(n<sup>2</sup>)      |
+| InsertionSortTest| Insertion  |                                   ![Insertion Sort](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/LearningRiven/AlgorithmPractice/ci-stats/test-badges/InsertionSortTest.json&logo=junit5&label=Tests%20Passing&labelColor=gray)                                    |       Θ(1)       |            Θ(n)            |      Θ(n<sup>2</sup>)      |      Θ(n<sup>2</sup>)      |
+| SelectionSortTest| Selection  |                                   ![Selection Sort](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/LearningRiven/AlgorithmPractice/ci-stats/test-badges/SelectionSortTest.json&logo=junit5&label=Tests%20Passing&labelColor=gray)                                    |       Θ(1)       |      Θ(n<sup>2</sup>)      |      Θ(n<sup>2</sup>)      |      Θ(n<sup>2</sup>)      |
 
-<sub>O - Upper Bound, Θ - Tight Bound (exact asymptotic growth), Ω - Lower Bound</sub>
+<sub>*** O - Upper Bound, Θ - Tight Bound (exact asymptotic growth), Ω - Lower Bound</sub>
+
+##### Benefits Over Brute Force
+
+
+|    Type     | Benefits                                                                               |
+|:-----------:|:-------------------------------------------------------------------------------------------------------------------------------|
+|  Insertion  | Adaptive:  Θ(n) time best-case (nearly-sorted); Fewer shifts O(n) best vs. brute's O(n<sup>2</sup>) swaps; Stable.             |
+|  Selection  | Non-Adaptive:  0 swaps best-case (O(n) max) vs. brute's O(n<sup>2</sup>); Always n(n-1)/2 compares (~half of brute); Unstable. |
+
 
 ### Other
 

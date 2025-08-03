@@ -3,9 +3,8 @@ package org.algomonster.algorithms.sort;
 import org.algomonster.Utils;
 
 import java.util.List;
-import java.util.NoSuchElementException;
 
-public class InsertionSortInPlace {
+public class InsertionSort {
     public static void sortListInsertion(List<Integer> unsortedList){
         //Handle junk parameter
         if(unsortedList == null){

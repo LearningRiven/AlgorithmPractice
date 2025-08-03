@@ -3,13 +3,12 @@ package org.algomonster.algorithms.sort;
 import org.algomonster.Utils;
 
 import java.util.List;
-import java.util.NoSuchElementException;
 
 /**
  * This algorithm runs in n^2 time
  * very inefficient since quicksort is also an inplace sorting algorithm but runs in nlogn time
  */
-public class BruteForceInPlaceSort {
+public class BruteForce {
     public static void sortListBrute(List<Integer> unsortedList){
         if(unsortedList == null){
             throw new IllegalStateException("List is null");

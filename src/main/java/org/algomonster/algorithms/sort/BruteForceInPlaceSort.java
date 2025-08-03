@@ -1,6 +1,9 @@
 package org.algomonster.algorithms.sort;
 
+import org.algomonster.Utils;
+
 import java.util.List;
+import java.util.NoSuchElementException;
 
 /**
  * This algorithm runs in n^2 time
@@ -8,11 +11,15 @@ import java.util.List;
  */
 public class BruteForceInPlaceSort {
     public static void sortListBrute(List<Integer> unsortedList){
+        if(unsortedList == null){
+            throw new IllegalStateException("List is null");
+        }
+
         for(int j = 0; j < unsortedList.size(); j++){
             //Loop through and find the true smallest
             for(int k = 0; k < unsortedList.size(); k++){
                 //We found an element smaller, swap them
-                if(unsortedList.get(j) < unsortedList.get(k)){
+                if(Utils.compare(unsortedList.get(j),unsortedList.get(k)) < 0){
                     Integer prevSmallest = unsortedList.get(j);
                     unsortedList.set(j,unsortedList.get(k));
                     unsortedList.set(k,prevSmallest);

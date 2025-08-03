@@ -39,6 +39,14 @@
 
 <h3>Algorithms - Sorting</h3>
 
-| Class                 | Type        | Time Complexity | Test Status                                                                                                                                                                                                                 |
-|-----------------------|-------------|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| BruteForceInPlaceSort | Brute Force | O(n^2)          | ![Brute Force](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/LearningRiven/AlgorithmPractice/ci-stats/test-badges/BruteForceInPlaceSortTest.json&logo=junit5&label=Tests%20Passing&labelColor=gray) |
+| Class                      |     Type      | Best Case <br/>(sorted already)  |   Average Case    | Worst case <br/>(sorted in reverse)  | Evolution                                                                        | Test Status                                                                                                                                                                                                                  |
+|:---------------------------|:-------------:|:--------------------------------:|:-----------------:|:------------------------------------:|:---------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| BruteForceInPlaceSortTest  |  Brute Force  |         O(n<sup>2</sup>)         | O(n<sup>2</sup>)  |           O(n<sup>2</sup>)           | Naive sort that loops through the list twice                                     | ![Brute Force](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/LearningRiven/AlgorithmPractice/ci-stats/test-badges/BruteForceInPlaceSortTest.json&logo=junit5&label=Tests%20Passing&labelColor=gray)  |
+| InsertionSortInPlaceTest   |   Insertion   |               O(n)               | O(n<sup>2</sup>)  |           O(n<sup>2</sup>)           | Uses prefix to swap,<br/>Avoids duplicate checks favoring partially sorted lists | ![Brute Force](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/LearningRiven/AlgorithmPractice/ci-stats/test-badges/InsertionSortInPlaceTest.json&logo=junit5&label=Tests%20Passing&labelColor=gray)   |
+
+
+<h3>Other</h3>
+
+| Class       | Test Status                                                                                                                                                                                                |
+|-------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| UtilsTest    | ![UtilsTest](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/LearningRiven/AlgorithmPractice/ci-stats/test-badges/UtilsTest.json&logo=junit5&label=Tests%20Passing&labelColor=gray)            |

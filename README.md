@@ -37,8 +37,8 @@
 | QueueTest   | ![QueueTest](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/LearningRiven/AlgorithmPractice/ci-stats/test-badges/QueueTest.json&logo=junit5&label=Tests%20Passing&labelColor=gray)          |
 | StackTest   | ![StackTest](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/LearningRiven/AlgorithmPractice/ci-stats/test-badges/StackTest.json&logo=junit5&label=Tests%20Passing&labelColor=gray)          |
 
-<h3>Algorithms - In Place Sorting</h3>
+<h3>Algorithms - Sorting</h3>
 
-| Class       | Time Complexity | Test Status                                                                                                                                                                                                                 |
-|-------------|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Brute Force | O(n^2)          | ![Brute Force](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/LearningRiven/AlgorithmPractice/ci-stats/test-badges/BruteForceInPlaceSortTest.json&logo=junit5&label=Tests%20Passing&labelColor=gray) |
+| Class                 | Type        | Time Complexity | Test Status                                                                                                                                                                                                                 |
+|-----------------------|-------------|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| BruteForceInPlaceSort | Brute Force | O(n^2)          | ![Brute Force](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/LearningRiven/AlgorithmPractice/ci-stats/test-badges/BruteForceInPlaceSortTest.json&logo=junit5&label=Tests%20Passing&labelColor=gray) |

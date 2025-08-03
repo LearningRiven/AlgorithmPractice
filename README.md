@@ -1,8 +1,15 @@
-## Intro
-<p>My attempt at working through the content offered on algo.monster, a platform that prepares you for technical interviews.</p>
-<p>Another aspect of this project is to use x.ai Grok in order to assist me in developing, mimicking a real world scenario we are moving towards where AI assisted programming is becoming popular</p>
+# Intro
+#### This project is mostly for me to refresh my knowledge on common software engineering techniques, with a twist of trying out some technologies in order to understand them better. 
 
-## Technologies/Credits
+## Goals
+
+- Review concepts that are typically covered in Data Structures and Algorithms
+- Utilize AI in order to speed up my overall progress
+- Utilize industry standard tools such as JaCoCo and SonarQube in order to have a solid testing strategy
+- Design a workflow on github in order to automate my development process
+- Maintain security by using gpg encryption when pushing updates to github
+
+# Technologies/Credits
 - **Core Development**
   - <img src="https://img.shields.io/badge/Java-21-blue?style=flat&logo=openjdk&logoColor=red" height="20">
   - <img src="https://img.shields.io/badge/Maven-3.9%2B-red?style=flat&logo=apachemaven&logoColor=red" height="20">
@@ -17,17 +24,20 @@
 
 - **AI Assistance Provided By**
   - <img src="https://img.shields.io/badge/Grok-4-black?style=flat&logo=x&logoColor=black" height="20">
+
+- **Security**
+  - <img src="https://img.shields.io/badge/Gpg4Win-black?style=flat&logo=gnuprivacyguard&logoColor=white" height="20">
   
 
-## **Sonar Cube Stats**
+# **Sonar Cube Stats**
 ![Overall Coverage (SonarCloud)](https://sonarcloud.io/api/project_badges/measure?project=LearningRiven_AlgorithmPractice&metric=reliability_rating)\
 ![Overall Coverage (SonarCloud)](https://sonarcloud.io/api/project_badges/measure?project=LearningRiven_AlgorithmPractice&metric=security_rating)\
 ![Overall Coverage (SonarCloud)](https://sonarcloud.io/api/project_badges/measure?project=LearningRiven_AlgorithmPractice&metric=alert_status)\
 ![Overall Coverage (SonarCloud)](https://sonarcloud.io/api/project_badges/measure?project=LearningRiven_AlgorithmPractice&metric=vulnerabilities)\
 ![Overall Coverage (SonarCloud)](https://sonarcloud.io/api/project_badges/measure?project=LearningRiven_AlgorithmPractice&metric=coverage)
 
-## Packages
-### Data Structures
+# Packages
+## Data Structures
 
 ##### The Goal with this package was to explore the common data structures used. I chose to recreate them from scratch in order to make sure I understand exactly the purpose of each and how they work.
 
@@ -39,11 +49,11 @@
 | QueueTest      | ![QueueTest](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/LearningRiven/AlgorithmPractice/ci-stats/test-badges/QueueTest.json&logo=junit5&label=Tests%20Passing&labelColor=gray)           |
 | StackTest      | ![StackTest](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/LearningRiven/AlgorithmPractice/ci-stats/test-badges/StackTest.json&logo=junit5&label=Tests%20Passing&labelColor=gray)           |
 
-### Algorithms
+## Algorithms
 
 ##### The Goal with this package is to first create a brute force approach for both sorting and searching through structures. Then as I added a new algorithm for either, I analyzed the costs and benefits associated with each approach when compared to the Brute Force approach I initially chose
 
-#### Sorting - Algorithm Implementations/Tests
+### Sorting - Algorithm Implementations/Tests
 
 | Class            |    Type    |                                                                                                                                         Test Status                                                                                                                                         | <sub>Space</sub> |      <sub>Best</sub>       |     <sub>Average</sub>     |      <sub>Worst</sub>      |
 |:-----------------|:----------:|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:----------------:|:--------------------------:|:--------------------------:|:--------------------------:|
@@ -53,7 +63,7 @@
 
 <sub>*** O - Upper Bound, Θ - Tight Bound (exact asymptotic growth), Ω - Lower Bound</sub>
 
-#### Sorting - Benefit Analysis Over Brute Force
+### Sorting - Benefit Analysis Over Brute Force
 
 |    Type     | Benefits                                                                               |
 |:-----------:|:-------------------------------------------------------------------------------------------------------------------------------|
@@ -61,7 +71,7 @@
 |  Selection  | Non-Adaptive:  0 swaps best-case (O(n) max) vs. brute's O(n<sup>2</sup>); Always n(n-1)/2 compares (~half of brute); Unstable. |
 
 
-### Other
+## Other
 
 | Class        | Test Status                                                                                                                                                                                                 |
 |:-------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

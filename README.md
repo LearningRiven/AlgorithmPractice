@@ -40,6 +40,7 @@
 
 ##### The Goal with this package was to explore the common data structures used. I chose to recreate them from scratch in order to make sure I understand exactly the purpose of each and how they work.
 
+
 | Class          | Test Status                                                                                                                                                                                                         |
 |:---------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | NodeTest       | ![NodeTest](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/LearningRiven/AlgorithmPractice/ci-stats/test-badges/NodeTest.json&logo=junit5&label=Tests%20Passing&labelColor=gray)             |
@@ -68,7 +69,6 @@
 |:-----------:|:-------------------------------------------------------------------------------------------------------------------------------|
 |  Insertion  | Adaptive:  Θ(n) time best-case (nearly-sorted); Fewer shifts O(n) best vs. brute's O(n<sup>2</sup>) swaps; Stable.             |
 |  Selection  | Non-Adaptive:  0 swaps best-case (O(n) max) vs. brute's O(n<sup>2</sup>); Always n(n-1)/2 compares (~half of brute); Unstable. |
-
 
 ## Other
 

@@ -3,7 +3,7 @@
 
 ## Contents
 - Home
-- [Data Structures](https://github.com/LearningRiven/AlgorithmPractice/tree/documentation/src/main/java/org/algomonster/datastructures)
+- [Data Structures](https://github.com/LearningRiven/AlgorithmPractice/tree/main/src/main/java/org/algomonster/datastructures)
 - Algorithms
   - [Sorting Algorithms](https://github.com/LearningRiven/AlgorithmPractice/tree/main/src/main/java/org/algomonster/algorithms/sort)
 

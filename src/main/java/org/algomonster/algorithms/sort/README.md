@@ -1,5 +1,11 @@
 # Sorting Algorithms
 
+## Contents
+- [Home](https://github.com/LearningRiven/AlgorithmPractice/tree/main)
+- [Data Structures](https://github.com/LearningRiven/AlgorithmPractice/tree/documentation/src/main/java/org/algomonster/datastructures)
+- Algorithms
+    - Sorting Algorithms
+
 | Class             |    Type    |                                                                                                      Test Status                                                                                                       | <sub>Space</sub> | <sub>Best</sub>  | <sub>Average</sub> | <sub>Worst</sub> |
 |:------------------|:----------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:----------------:|:----------------:|:------------------:|:----------------:|
 | BruteForceTest    | BruteForce |    ![Brute Force](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/LearningRiven/AlgorithmPractice/ci-stats/test-badges/BruteForceTest.json&logo=junit5&label=Tests%20Passing&labelColor=gray)    |       Θ(1)       | Θ(n<sup>2</sup>) |  Θ(n<sup>2</sup>)  | Θ(n<sup>2</sup>) |

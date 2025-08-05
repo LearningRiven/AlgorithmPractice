@@ -1,6 +1,12 @@
 # Intro
 #### This project is mostly for me to refresh my knowledge on common software engineering techniques, with a twist of trying out some technologies in order to understand them better. 
 
+## Contents
+- Home
+- [Data Structures](https://github.com/LearningRiven/AlgorithmPractice/tree/documentation/src/main/java/org/algomonster/datastructures)
+- Algorithms
+  - [Sorting Algorithms](https://github.com/LearningRiven/AlgorithmPractice/tree/main/src/main/java/org/algomonster/algorithms/sort)
+
 ## Goals
 - Review concepts that are typically covered in Data Structures and Algorithms
 - Utilize AI in order to speed up my overall progress

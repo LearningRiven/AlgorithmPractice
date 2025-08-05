@@ -4,7 +4,7 @@
 - [Home](https://github.com/LearningRiven/AlgorithmPractice/tree/main)
 - [Data Structures](https://github.com/LearningRiven/AlgorithmPractice/tree/main/src/main/java/org/algomonster/datastructures)
 - Algorithms
-    - Sorting Algorithms
+    - Sorting Algorithms (you are here)
 
 | Class             |    Type    |                                                                                                      Test Status                                                                                                       | <sub>Space</sub> | <sub>Best</sub>  | <sub>Average</sub> | <sub>Worst</sub> |
 |:------------------|:----------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:----------------:|:----------------:|:------------------:|:----------------:|

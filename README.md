@@ -65,15 +65,6 @@
 
 <sub>*** O - Upper Bound, Θ - Tight Bound (exact asymptotic growth), Ω - Lower Bound</sub>
 
-### Sorting - Benefit Analysis Over Brute Force
-
-|       Type       | Benefits                                                                                                                             |
-|:----------------:|:-------------------------------------------------------------------------------------------------------------------------------------|
-|    Insertion     | Adaptive:  Θ(n) time best-case (nearly-sorted); Fewer shifts O(n) best vs. brute's O(n<sup>2</sup>) swaps; Stable.                   |
-|    Selection     | Non-Adaptive:  0(n) swaps best-case vs. brute's O(n<sup>2</sup>); Always n(n-1)/2 compares (~half of brute); Unstable.               |
-| Bubble (flagged) | Adaptive:  0(n) time best-case vs. brute's O(n<sup>2</sup>); O(n<sup>2</sup>/4) average, and O(n<sup>2</sup>) worst; Stable.         |
-|    Merge Sort    | Non-Adaptive:  0(nlogn) time best-case vs. brute's O(n<sup>2</sup>); 0(nlogn) average, and 0(nlogn) worst; Stable. |
-
 ## Other
 
 | Class        | Test Status                                                                                                                                                                                                 |

@@ -1,6 +1,10 @@
 package org.algomonster;
 
-public final class Utils {
+final class Utils {
+
+    private Utils() {
+        throw new IllegalStateException("Utility class");
+    }
 
     //Generic comparator, handles null
     public static <T extends Comparable<? super T>> int compare(T a, T b) {

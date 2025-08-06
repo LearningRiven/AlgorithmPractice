@@ -16,8 +16,7 @@ class MergeSort{
             throw new IllegalStateException("List is null");
         }
 
-        List<Integer> sorted = sortHelper(unsortedList,0,unsortedList.size());
-        return sorted;
+        return sortHelper(unsortedList,0,unsortedList.size());
     }
 
     //Recursive method, rule 1 is to have a base condition, then the recursion condition, and then either having a return or doing in place

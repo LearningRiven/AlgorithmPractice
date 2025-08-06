@@ -38,7 +38,7 @@ public class Queue<T> {
         }
 
         //Take the head
-        Node<T> head = this.head;
+        Node<T> curHead = this.head;
 
         //If there is a next element, make it the new head
         this.head = head.getNext();
@@ -50,7 +50,7 @@ public class Queue<T> {
         //subtract the size
         this.size--;
 
-        return head.getData();
+        return curHead.getData();
     }
 
     public T peek(){

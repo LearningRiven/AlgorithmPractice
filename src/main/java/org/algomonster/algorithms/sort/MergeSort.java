@@ -5,7 +5,7 @@ import org.algomonster.Utils;
 import java.util.ArrayList;
 import java.util.List;
 
-class MergeSort{
+public class MergeSort{
 
     private MergeSort() {
         throw new IllegalStateException("MergeSort class");

@@ -5,7 +5,7 @@ import org.algomonster.Utils;
 
 import java.util.List;
 
-class SelectionSort {
+public class SelectionSort {
 
     private SelectionSort() {
         throw new IllegalStateException("SelectionSort class");

@@ -4,7 +4,7 @@ import org.algomonster.Utils;
 
 import java.util.List;
 
-class InsertionSort {
+public class InsertionSort {
 
     private InsertionSort() {
         throw new IllegalStateException("InsertionSort class");

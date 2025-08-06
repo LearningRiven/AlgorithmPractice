@@ -7,7 +7,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class InsertionSortTest {
+class InsertionSortTest {
     @Test
     void test1Insertion(){
         List<Integer> unOrderedList = Arrays.asList(5,3,1,2,4);

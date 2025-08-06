@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.util.Arrays;
 import java.util.List;
 
-public class BruteForceTest {
+class BruteForceTest {
 
     @Test
     void test1Brute(){

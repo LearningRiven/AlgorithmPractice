@@ -8,7 +8,7 @@ import java.util.List;
  * This algorithm runs in n^2 time
  * very inefficient since quicksort is also an inplace sorting algorithm but runs in nlogn time
  */
-class BruteForce {
+public class BruteForce {
 
     private BruteForce() {
         throw new IllegalStateException("BruteForce class");

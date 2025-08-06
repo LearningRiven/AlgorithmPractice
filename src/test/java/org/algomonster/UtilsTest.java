@@ -3,7 +3,7 @@ package org.algomonster;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
-public class UtilsTest {
+class UtilsTest {
 
     @Test
     void testCompare(){

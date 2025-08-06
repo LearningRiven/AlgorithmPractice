@@ -4,7 +4,7 @@ import org.algomonster.Utils;
 
 import java.util.List;
 
-class BubbleSort {
+public class BubbleSort {
 
     private BubbleSort() {
         throw new IllegalStateException("BubbleSort class");

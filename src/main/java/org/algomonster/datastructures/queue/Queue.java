@@ -16,7 +16,7 @@ public class Queue<T> {
     }
 
     public void enqueue(T item){
-        Node<T> node = new Node<T>(item);
+        Node<T> node = new Node<>(item);
 
         //add to tail
         if(this.tail != null){

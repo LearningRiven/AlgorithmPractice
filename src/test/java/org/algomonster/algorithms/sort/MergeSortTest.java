@@ -8,7 +8,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class MergeSortTest{
+class MergeSortTest{
     @Test
     void test1Brute(){
         List<Integer> unOrderedList = Arrays.asList(5,3,1,2,4);

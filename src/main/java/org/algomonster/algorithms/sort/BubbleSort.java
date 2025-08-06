@@ -7,7 +7,7 @@ import java.util.List;
 public class BubbleSort {
 
     private BubbleSort() {
-        throw new IllegalStateException("BubbleSort class");
+
     }
 
     public static void sortListBubble(List<Integer> unsortedList){

@@ -7,7 +7,7 @@ import java.util.List;
 public class InsertionSort {
 
     private InsertionSort() {
-        throw new IllegalStateException("InsertionSort class");
+
     }
 
     public static void sortListInsertion(List<Integer> unsortedList){

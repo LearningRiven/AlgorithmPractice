@@ -8,7 +8,7 @@ import java.util.List;
 public class SelectionSort {
 
     private SelectionSort() {
-        throw new IllegalStateException("SelectionSort class");
+
     }
 
     public static void sortListSelection(List<Integer> unsortedList){

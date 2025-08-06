@@ -11,7 +11,7 @@ import java.util.List;
 public class BruteForce {
 
     private BruteForce() {
-        throw new IllegalStateException("BruteForce class");
+
     }
 
     public static void sortListBrute(List<Integer> unsortedList){

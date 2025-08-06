@@ -8,7 +8,7 @@ import java.util.List;
 public class MergeSort{
 
     private MergeSort() {
-        throw new IllegalStateException("MergeSort class");
+
     }
 
     public static List<Integer> sortListMerge(List<Integer> unsortedList){

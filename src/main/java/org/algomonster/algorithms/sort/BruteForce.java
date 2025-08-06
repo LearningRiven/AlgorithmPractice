@@ -8,7 +8,12 @@ import java.util.List;
  * This algorithm runs in n^2 time
  * very inefficient since quicksort is also an inplace sorting algorithm but runs in nlogn time
  */
-public class BruteForce {
+class BruteForce {
+
+    private BruteForce() {
+        throw new IllegalStateException("BruteForce class");
+    }
+
     public static void sortListBrute(List<Integer> unsortedList){
         if(unsortedList == null){
             throw new IllegalStateException("List is null");

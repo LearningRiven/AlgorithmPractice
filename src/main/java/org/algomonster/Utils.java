@@ -1,6 +1,6 @@
 package org.algomonster;
 
-final class Utils {
+public final class Utils {
 
     private Utils() {
         throw new IllegalStateException("Utility class");

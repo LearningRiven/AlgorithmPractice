@@ -4,7 +4,12 @@ import org.algomonster.Utils;
 
 import java.util.List;
 
-public class InsertionSort {
+class InsertionSort {
+
+    private InsertionSort() {
+        throw new IllegalStateException("InsertionSort class");
+    }
+
     public static void sortListInsertion(List<Integer> unsortedList){
         //Handle junk parameter
         if(unsortedList == null){

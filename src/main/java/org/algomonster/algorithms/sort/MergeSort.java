@@ -5,7 +5,12 @@ import org.algomonster.Utils;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MergeSort{
+class MergeSort{
+
+    private MergeSort() {
+        throw new IllegalStateException("MergeSort class");
+    }
+
     public static List<Integer> sortListMerge(List<Integer> unsortedList){
         if(unsortedList == null){
             throw new IllegalStateException("List is null");

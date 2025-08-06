@@ -33,7 +33,7 @@ class HashMapTest {
         assertNotEquals(nullKey, nullValue);
 
         // Null handling
-        assertNotEquals(entry1, null);
+        assertNotEquals(null,entry1);
         assertEquals(nullKey, new HashMap.MapEntry<>(null, 1)); // Same null key, same value
         assertNotEquals(nullKey, new HashMap.MapEntry<>(null, 2)); // Diff value
     }
@@ -190,8 +190,8 @@ class HashMapTest {
         assertEquals(2, map.size()); //verify size still good
 
         //Manually empty the rest of the map to make sure no negative size
-        Integer sixtyFour = map.remove(64);
-        Integer sixteen = map.remove(16);
+        map.remove(64);
+        map.remove(16);
         assertEquals(0, map.size());
         assertTrue(map.isEmpty());
         map.remove(0);

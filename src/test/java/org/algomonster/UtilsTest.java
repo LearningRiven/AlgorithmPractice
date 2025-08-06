@@ -1,9 +1,20 @@
 package org.algomonster;
 
 import static org.junit.jupiter.api.Assertions.*;
+
+import org.algomonster.algorithms.sort.InsertionSort;
 import org.junit.jupiter.api.Test;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Modifier;
+
 class UtilsTest {
+
+    @Test
+    void testConstructor() throws NoSuchMethodException {
+        Constructor<Utils> constructor = Utils.class.getDeclaredConstructor();
+        assertTrue(Modifier.isPrivate(constructor.getModifiers()));
+    }
 
     @Test
     void testCompare(){

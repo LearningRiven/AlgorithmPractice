@@ -2,12 +2,21 @@ package org.algomonster.algorithms.sort;
 
 import org.junit.jupiter.api.Test;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Modifier;
 import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class InsertionSortTest {
+
+    @Test
+    void testConstructor() throws NoSuchMethodException {
+        Constructor<InsertionSort> constructor = InsertionSort.class.getDeclaredConstructor();
+        assertTrue(Modifier.isPrivate(constructor.getModifiers()));
+    }
+
     @Test
     void test1Insertion(){
         List<Integer> unOrderedList = Arrays.asList(5,3,1,2,4);

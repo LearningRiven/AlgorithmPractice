@@ -5,6 +5,11 @@ import org.algomonster.Utils;
 import java.util.List;
 
 public class InsertionSort {
+
+    private InsertionSort() {
+
+    }
+
     public static void sortListInsertion(List<Integer> unsortedList){
         //Handle junk parameter
         if(unsortedList == null){

@@ -6,6 +6,11 @@ import org.algomonster.Utils;
 import java.util.List;
 
 public class SelectionSort {
+
+    private SelectionSort() {
+
+    }
+
     public static void sortListSelection(List<Integer> unsortedList){
         if(unsortedList == null){
             throw new IllegalStateException("List is null");

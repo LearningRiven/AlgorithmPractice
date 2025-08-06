@@ -3,10 +3,18 @@ package org.algomonster.algorithms.sort;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Modifier;
 import java.util.Arrays;
 import java.util.List;
 
-public class BruteForceTest {
+class BruteForceTest {
+
+    @Test
+    void testConstructor() throws NoSuchMethodException {
+        Constructor<BruteForce> constructor = BruteForce.class.getDeclaredConstructor();
+        assertTrue(Modifier.isPrivate(constructor.getModifiers()));
+    }
 
     @Test
     void test1Brute(){

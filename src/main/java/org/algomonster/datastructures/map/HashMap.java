@@ -45,7 +45,6 @@ public class HashMap<K, V> {
     }
 
     public V get(K key) {
-        V value;
         int index = this.getIndex(key, this.buckets);
 
         //Traverse the bucket
@@ -62,7 +61,6 @@ public class HashMap<K, V> {
     }
 
     public V remove(K key) {
-        V value;
         int index = this.getIndex(key, this.buckets);
 
         //Traverse the bucket

@@ -25,6 +25,11 @@
             <version>5.10.3</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.14.0</version> <!-- Latest stable as of mid-2023; check mvnrepository.com for updates if needed -->
+        </dependency>
     </dependencies>
 
     <build>

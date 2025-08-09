@@ -92,5 +92,11 @@ class MergeSortTest{
         assertNotEquals(solution,unOrderedList);
         unOrderedList = MergeSort.sortListMerge(unOrderedList);
         assertEquals(solution,unOrderedList);
+
+        //All equals
+        unOrderedList = Arrays.asList(1,1,1,1,1);
+        solution = Arrays.asList(1,1,1,1,1);
+        MergeSort.sortListMerge(unOrderedList);
+        assertEquals(solution,unOrderedList);
     }
 }

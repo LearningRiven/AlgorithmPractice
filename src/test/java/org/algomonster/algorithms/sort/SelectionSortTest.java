@@ -76,21 +76,27 @@ class SelectionSortTest {
         //Single Element
         unOrderedList = Arrays.asList(1);
         solution = Arrays.asList(1);
-        InsertionSort.sortListInsertion(unOrderedList);
+        SelectionSort.sortListSelection(unOrderedList);
         assertEquals(solution,unOrderedList);
 
         //Null Element
         unOrderedList = Arrays.asList(1,null);
         solution = Arrays.asList(null,1);
         assertNotEquals(solution,unOrderedList);
-        InsertionSort.sortListInsertion(unOrderedList);
+        SelectionSort.sortListSelection(unOrderedList);
         assertEquals(solution,unOrderedList);
 
         //Null Element Large
         unOrderedList = Arrays.asList(5,null,3,null,1,null,2,null,4,null);
         solution = Arrays.asList(null,null,null,null,null,1,2,3,4,5);
         assertNotEquals(solution,unOrderedList);
-        InsertionSort.sortListInsertion(unOrderedList);
+        SelectionSort.sortListSelection(unOrderedList);
+        assertEquals(solution,unOrderedList);
+
+        //All equals
+        unOrderedList = Arrays.asList(1,1,1,1,1);
+        solution = Arrays.asList(1,1,1,1,1);
+        SelectionSort.sortListSelection(unOrderedList);
         assertEquals(solution,unOrderedList);
     }
 }

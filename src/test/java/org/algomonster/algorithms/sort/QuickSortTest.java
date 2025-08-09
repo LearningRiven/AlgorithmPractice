@@ -9,7 +9,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class QuickSortTest {
+class QuickSortTest {
     @Test
     void testConstructor() throws NoSuchMethodException {
         Constructor<QuickSort> constructor = QuickSort.class.getDeclaredConstructor();

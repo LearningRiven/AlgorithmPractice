@@ -165,6 +165,41 @@ sort the left side via recursion using list, start, startptr
 sort the right side via recursion using list, startptr + 1, end (skips the pivot since its in the correct spot)
 ````
 
+### Divide and Conquer Testing
+
+#### In order to practice cloud integration, and prove that quicksort is by far the best algorithm for most cases, I created an AWS S3 bucket and populated it with large datasets
+* Best Case - 100k values already sorted
+* Average Case - Randomly generated 100k values with both positives and negatives
+* Worst Case - 100k values inversely sorted
+
+#### In a real world scenario you can see that in all 3 scenarios are actually faster with the quicksort algorithm, below is a screenshot of the timings
+![S3 Merge vs QuickSort Comparison](/images/S3MergeVsQuick.png)
+
+#### For easier viewing here is a table of the timings I have seen
+
+| Test Case | Quick Sort | Merge Sort |
+|:----------|------------|------------|
+| Worst     | 12ms       | 70ms       |
+| Average   | 16ms       | 79ms       |
+| Best      | 37ms       | 57ms       |
+
+#### We do how ever see a clear patterns
+* Merge Sort underperforms when compared to my Quick Sort implementation
+* My Quicksort implementation is much worse when working with already sorted data and the best when its inversely sorted
+* The average time for Quicksort is closer to its best case (inversely sorted) instead of the worst case
+
+#### This is just a simple demonstration though, we have to admit some flaws with my testing, atleast enough to call it inconclusive (more of a demo of using S3 in order to test), here is how I could make this more robust
+* Work with a much larger dataset, 100k rows with modern computing hardware simply isnt enough to test the actual algorithm while mitigating certain hardware processes
+* Run my tests multiple times and take the average, sample size of 1 is not enough to make a thoughtful decision
+
+
+| Class           | Test Status                                                                                                                                                                                                           |
+|:----------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| S3AlgorithmTest | ![S3AlgorithmTest](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/LearningRiven/AlgorithmPractice/ci-stats/test-badges/S3AlgorithmTest.json&logo=junit5&label=Tests%20Passing&labelColor=gray) |
+
+
+
+
 ### Ranking Them
   1. QuickSort - Fastest average on random data, in-place, but unstable and O(n²) worst (mitigate with random pivots). Lacks in stability and worst-case guarantees. 
   2. Mergesort - Reliable O(n log n) always, stable, but O(n) space and non-adaptive. Complements QuickSort when stability/guarantees matter

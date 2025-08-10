@@ -23,6 +23,7 @@
 - **Testing & Coverage**
   - <img src="https://img.shields.io/badge/JUnit-5.10.3-green?style=flat&logo=junit5&logoColor=green" height="20">
   - <img src="https://img.shields.io/badge/JaCoCo-0.8.12-yellow?style=flat&logo=openjdk&logoColor=red" height="20">
+  - <img src="https://img.shields.io/badge/Amazon%20S3-Large%20Dataset%20Test-orange?style=flat&logo=amazons3" height="20">
 
 - **Code Quality**
   - <img src="https://img.shields.io/badge/SonarCloud-Integrated-orange?style=flat&logo=sonarqubecloud&logoColor=blue" height="20">
@@ -74,6 +75,7 @@
 
 ## Other
 
-| Class        | Test Status                                                                                                                                                                                                 |
-|:-------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| UtilsTest    | ![UtilsTest](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/LearningRiven/AlgorithmPractice/ci-stats/test-badges/UtilsTest.json&logo=junit5&label=Tests%20Passing&labelColor=gray)   |
+| Class           | Test Status                                                                                                                                                                                                           |
+|:----------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| UtilsTest       | ![UtilsTest](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/LearningRiven/AlgorithmPractice/ci-stats/test-badges/UtilsTest.json&logo=junit5&label=Tests%20Passing&labelColor=gray)             |
+| S3AlgorithmTest | ![S3AlgorithmTest](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/LearningRiven/AlgorithmPractice/ci-stats/test-badges/S3AlgorithmTest.json&logo=junit5&label=Tests%20Passing&labelColor=gray) |

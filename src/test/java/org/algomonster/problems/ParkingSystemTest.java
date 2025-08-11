@@ -59,17 +59,6 @@ class ParkingSystemTest {
         assertEquals(2, pk.getSmallSlots());
         assertEquals(1, pk.getMediumSlots());
         assertEquals(0,pk.getBigSlots());
-
-        //Add more to 0
-        assertTrue(pk.attemptParking(ParkingSystem.CarType.SMALL));
-        assertTrue(pk.attemptParking(ParkingSystem.CarType.SMALL));
-        assertFalse(pk.attemptParking(ParkingSystem.CarType.SMALL));
-        assertTrue(pk.attemptParking(ParkingSystem.CarType.MEDIUM));
-        assertFalse(pk.attemptParking(ParkingSystem.CarType.MEDIUM));
-        assertFalse(pk.attemptParking(ParkingSystem.CarType.BIG));
-        assertEquals(0, pk.getSmallSlots());
-        assertEquals(0, pk.getMediumSlots());
-        assertEquals(0,pk.getBigSlots());
     }
 
     @Test

@@ -75,6 +75,13 @@
 
 <sub>*** O - Upper Bound, Θ - Tight Bound (exact asymptotic growth), Ω - Lower Bound</sub>
 
+## Problems
+| Class             |    Problem     |                                                                                                      Test Status                                                                                                       |
+|:------------------|:--------------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+| ParkingSystemTest | Parking System | ![Parking System](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/LearningRiven/AlgorithmPractice/ci-stats/test-badges/ParkingSystemTest.json&logo=junit5&label=Tests%20Passing&labelColor=gray) |
+
+
+
 ## Other
 
 | Class           | Test Status                                                                                                                                                                                                           |

@@ -11,3 +11,8 @@
 ## Overview
 
 * Parking System - Very simple problem, mostly tests ability absorb technical specifications and make decisions when lacking clarity
+
+## Testing
+| Class             |    Problem     |                                                                                                      Test Status                                                                                                       |
+|:------------------|:--------------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+| ParkingSystemTest | Parking System | ![Parking System](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/LearningRiven/AlgorithmPractice/ci-stats/test-badges/ParkingSystemTest.json&logo=junit5&label=Tests%20Passing&labelColor=gray) |

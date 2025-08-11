@@ -2,10 +2,12 @@
 #### This project is mostly for me to refresh my knowledge on common software engineering techniques, with a twist of trying out some technologies in order to understand them better. 
 
 ## Contents
-- Home (you are here)
-- [Data Structures](https://github.com/LearningRiven/AlgorithmPractice/tree/main/src/main/java/org/algomonster/datastructures)
-- Algorithms
-  - [Sorting Algorithms](https://github.com/LearningRiven/AlgorithmPractice/tree/main/src/main/java/org/algomonster/algorithms/sort)
+* [***Home***](/)
+* [Data Structures](/src/main/java/org/algomonster/datastructures)
+* Algorithms
+  * [Sorting Algorithms](/src/main/java/org/algomonster/algorithms/sort)
+* [Problems](/src/main/java/org/algomonster/problems)
+  * [Parking System Instructions](/src/main/java/org/algomonster/problems/instructions/ParkingSystem.md)
 
 ## Goals
 - Review concepts that are typically covered in Data Structures and Algorithms

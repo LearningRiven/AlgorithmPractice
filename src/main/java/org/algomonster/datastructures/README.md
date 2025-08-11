@@ -1,10 +1,12 @@
 # Data Structures
 
 ## Contents
-- [Home](https://github.com/LearningRiven/AlgorithmPractice/tree/main)
-- Data Structures (you are here)
-- Algorithms
-  - [Sorting Algorithms](https://github.com/LearningRiven/AlgorithmPractice/tree/main/src/main/java/org/algomonster/algorithms/sort)
+* [Home](/)
+* [-***Data Structures***-](/src/main/java/org/algomonster/datastructures)
+* Algorithms
+  * [Sorting Algorithms](/src/main/java/org/algomonster/algorithms/sort)
+* [Problems](/src/main/java/org/algomonster/problems)
+  * [Parking System Instructions](/src/main/java/org/algomonster/problems/instructions/ParkingSystem.md)
 
 ## The Goal
 
@@ -17,5 +19,3 @@
 | HashMapTest    | ![HashMapTest](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/LearningRiven/AlgorithmPractice/ci-stats/test-badges/HashMapTest.json&logo=junit5&label=Tests%20Passing&labelColor=gray)          |
 | QueueTest      | ![QueueTest](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/LearningRiven/AlgorithmPractice/ci-stats/test-badges/QueueTest.json&logo=junit5&label=Tests%20Passing&labelColor=gray)              |
 | StackTest      | ![StackTest](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/LearningRiven/AlgorithmPractice/ci-stats/test-badges/StackTest.json&logo=junit5&label=Tests%20Passing&labelColor=gray)              |
-
-## WIP ANALYSIS BELOW

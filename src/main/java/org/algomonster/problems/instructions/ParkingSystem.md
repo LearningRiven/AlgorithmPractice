@@ -6,7 +6,7 @@
 * Algorithms
     * [Sorting Algorithms](/src/main/java/org/algomonster/algorithms/sort)
 * [Problems](/src/main/java/org/algomonster/problems)
-    * [***Parking System Instructions***](/src/main/java/org/algomonster/problems/instructions/ParkingSystem.md)
+    * [-***Parking System Instructions***-](/src/main/java/org/algomonster/problems/instructions/ParkingSystem.md)
 
 
 ### Problem Description

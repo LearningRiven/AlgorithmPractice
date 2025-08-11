@@ -93,4 +93,10 @@ class ParkingSystemTest {
         assertFalse(pk.attemptParking(ParkingSystem.CarType.MEDIUM));
         assertFalse(pk.attemptParking(ParkingSystem.CarType.BIG));
     }
+
+    @Test
+    void testParkingLotAddNullType(){
+        ParkingSystem pk = new ParkingSystem(10,10,10);
+        assertFalse(pk.attemptParking(null));
+    }
 }

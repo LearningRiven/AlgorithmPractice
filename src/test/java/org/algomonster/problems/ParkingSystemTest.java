@@ -95,6 +95,32 @@ class ParkingSystemTest {
     }
 
     @Test
+    void testParkingLotGettingToZero(){
+        ParkingSystem pk = new ParkingSystem(1,1,1);
+        //Add with 1 slot remaining
+        assertEquals(1, pk.getSmallSlots());
+        assertEquals(1, pk.getMediumSlots());
+        assertEquals(1,pk.getBigSlots());
+        assertTrue(pk.attemptParking(ParkingSystem.CarType.SMALL));
+        assertTrue(pk.attemptParking(ParkingSystem.CarType.MEDIUM));
+        assertTrue(pk.attemptParking(ParkingSystem.CarType.BIG));
+        //Add with 0 slots remaining
+        assertEquals(0, pk.getSmallSlots());
+        assertEquals(0, pk.getMediumSlots());
+        assertEquals(0,pk.getBigSlots());
+        assertFalse(pk.attemptParking(ParkingSystem.CarType.SMALL));
+        assertFalse(pk.attemptParking(ParkingSystem.CarType.MEDIUM));
+        assertFalse(pk.attemptParking(ParkingSystem.CarType.BIG));
+        //Add again with 0 slots remaining
+        assertEquals(0, pk.getSmallSlots());
+        assertEquals(0, pk.getMediumSlots());
+        assertEquals(0,pk.getBigSlots());
+        assertFalse(pk.attemptParking(ParkingSystem.CarType.SMALL));
+        assertFalse(pk.attemptParking(ParkingSystem.CarType.MEDIUM));
+        assertFalse(pk.attemptParking(ParkingSystem.CarType.BIG));
+    }
+
+    @Test
     void testParkingLotAddNullType(){
         ParkingSystem pk = new ParkingSystem(10,10,10);
         assertFalse(pk.attemptParking(null));

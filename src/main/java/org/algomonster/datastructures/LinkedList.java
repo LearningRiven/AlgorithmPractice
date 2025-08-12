@@ -1,6 +1,4 @@
-package org.algomonster.datastructures.linkedlist;
-
-import org.algomonster.datastructures.Node;
+package org.algomonster.datastructures;
 
 public class LinkedList<T> {
     private Node<T> head;

@@ -1,4 +1,4 @@
-package org.algomonster.datastructures.queue;
+package org.algomonster.datastructures;
 
 import org.junit.jupiter.api.Test;
 import java.util.NoSuchElementException;

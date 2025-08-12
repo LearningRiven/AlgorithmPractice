@@ -1,6 +1,4 @@
-package org.algomonster.datastructures.stack;
-
-import org.algomonster.datastructures.Node;
+package org.algomonster.datastructures;
 
 import java.util.NoSuchElementException;
 

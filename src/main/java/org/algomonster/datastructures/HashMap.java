@@ -1,4 +1,4 @@
-package org.algomonster.datastructures.map;
+package org.algomonster.datastructures;
 
 import java.util.Objects;
 

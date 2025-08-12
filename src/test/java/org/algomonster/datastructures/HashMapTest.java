@@ -1,8 +1,7 @@
-package org.algomonster.datastructures.map;
+package org.algomonster.datastructures;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-import org.algomonster.datastructures.Node;
 
 class HashMapTest {
 

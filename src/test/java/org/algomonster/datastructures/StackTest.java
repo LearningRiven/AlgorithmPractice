@@ -1,4 +1,4 @@
-package org.algomonster.datastructures.stack;
+package org.algomonster.datastructures;
 
 import org.junit.jupiter.api.Test;
 

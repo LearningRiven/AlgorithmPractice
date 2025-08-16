@@ -2,6 +2,7 @@ package org.algomonster;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.algomonster.algorithms.sort.BruteForce;
 import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Constructor;
@@ -32,5 +33,40 @@ class UtilsTest {
         assertTrue(Utils.compare(null,10) < 0);
         assertTrue(Utils.compare(10,null) > 0);
         assertEquals(0,Utils.compare(null,null));
+    }
+
+    @Test
+    void testCalculateMiddle(){
+        assertEquals(5, Utils.calculateMiddle(0,11));
+        assertEquals(5, Utils.calculateMiddle(0,10));
+        assertEquals(0, Utils.calculateMiddle(0,0));
+        assertEquals(5, Utils.calculateMiddle(5,5));
+        assertEquals(5, Utils.calculateMiddle(4,6));
+    }
+
+    @Test
+    void testCalculateMiddleBadValues(){
+        assertThrows(IllegalArgumentException.class,() -> Utils.calculateMiddle(-1,5), "Negative values not accepted: start=-1, end=5");
+        assertThrows(IllegalArgumentException.class,() -> Utils.calculateMiddle(5,-1), "Negative values not accepted: start=5, end=1");
+        assertThrows(IllegalArgumentException.class,() -> Utils.calculateMiddle(6,5), "Start must be equal to or less than end: start=6, end=5");
+    }
+
+    @Test
+    void testSearchResultConstructorAndGetters() {
+        Utils.SearchResult<Integer> foundNull = new Utils.SearchResult<>(true, null);
+        assertTrue(foundNull.found());
+        assertNull(foundNull.value());
+
+        Utils.SearchResult<Integer> notFound = new Utils.SearchResult<>(false, null);
+        assertFalse(notFound.found());
+        assertNull(notFound.value());
+
+        Utils.SearchResult<Integer> foundValue = new Utils.SearchResult<>(true, 1);
+        assertTrue(foundValue.found());
+        assertEquals(1, foundValue.value());
+
+        Utils.SearchResult<String> foundString = new Utils.SearchResult<>(true, "test");
+        assertTrue(foundString.found());
+        assertEquals("test", foundString.value());
     }
 }

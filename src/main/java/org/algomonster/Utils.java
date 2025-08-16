@@ -14,4 +14,15 @@ public final class Utils {
         return a.compareTo(b);
     }
 
+    public static int calculateMiddle(int start, int end){
+        if(start < 0 || end < 0){
+            throw new IllegalArgumentException("Negative values not accepted: start=" + start + ", end=" + end);
+        }
+        if(start > end){
+            throw new IllegalArgumentException("Start must be equal to or less than end: start=" + start + ", end=" + end);
+        }
+
+        return (start+((end-start)/2));
+    }
+
 }

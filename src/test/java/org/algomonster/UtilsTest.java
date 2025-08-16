@@ -50,4 +50,23 @@ class UtilsTest {
         assertThrows(IllegalArgumentException.class,() -> Utils.calculateMiddle(5,-1), "Negative values not accepted: start=5, end=1");
         assertThrows(IllegalArgumentException.class,() -> Utils.calculateMiddle(6,5), "Start must be equal to or less than end: start=6, end=5");
     }
+
+    @Test
+    void testSearchResultConstructorAndGetters() {
+        Utils.SearchResult<Integer> foundNull = new Utils.SearchResult<>(true, null);
+        assertTrue(foundNull.found());
+        assertNull(foundNull.value());
+
+        Utils.SearchResult<Integer> notFound = new Utils.SearchResult<>(false, null);
+        assertFalse(notFound.found());
+        assertNull(notFound.value());
+
+        Utils.SearchResult<Integer> foundValue = new Utils.SearchResult<>(true, 1);
+        assertTrue(foundValue.found());
+        assertEquals(1, foundValue.value());
+
+        Utils.SearchResult<String> foundString = new Utils.SearchResult<>(true, "test");
+        assertTrue(foundString.found());
+        assertEquals("test", foundString.value());
+    }
 }

@@ -54,7 +54,15 @@ public class BinarySearchTest {
     @Test
     void testRegularSearchNull(){
         List<Integer> ordered = Arrays.asList(null,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19);
-        assertFalse(BinarySearch.searchListBinary(ordered,7));
+        assertTrue(BinarySearch.searchListBinary(ordered,7));
+        assertTrue(BinarySearch.searchListBinary(ordered,null));
+        assertFalse(BinarySearch.searchListBinary(ordered,1));
+    }
+
+    @Test
+    void testDuplicateValues(){
+        List<Integer> ordered = Arrays.asList(null,null,3,4,5,6,7,7,9,10,11,12,13,14,15,16,17,18,19);
+        assertTrue(BinarySearch.searchListBinary(ordered,7));
         assertTrue(BinarySearch.searchListBinary(ordered,null));
         assertFalse(BinarySearch.searchListBinary(ordered,1));
     }

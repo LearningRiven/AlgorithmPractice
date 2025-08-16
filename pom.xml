@@ -7,6 +7,10 @@
     <groupId>org.algomonster</groupId>
     <artifactId>algorithm-practice</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <modules>
+        <module>spring-integration</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>

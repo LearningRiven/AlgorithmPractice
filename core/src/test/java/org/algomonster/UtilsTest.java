@@ -2,7 +2,6 @@ package org.algomonster;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.algomonster.algorithms.sort.BruteForce;
 import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Constructor;

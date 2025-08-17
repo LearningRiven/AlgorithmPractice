@@ -1,9 +1,10 @@
 package org.algomonster;
 
 //Sorting algorithms
-import org.algomonster.algorithms.sort.*;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.algomonster.algorithms.sort.MergeSort;
+import org.algomonster.algorithms.sort.QuickSort;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import software.amazon.awssdk.auth.credentials.EnvironmentVariableCredentialsProvider;
@@ -17,10 +18,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertIterableEquals;
 
 public class S3AlgorithmTest {

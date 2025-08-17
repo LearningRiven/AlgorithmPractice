@@ -2,11 +2,11 @@
 
 ## Contents
 * [Home](/)
-* [Data Structures](/src/main/java/org/algomonster/datastructures)
+* [Data Structures](/org/algomonster/algomonsteratastructures)
 * Algorithms
-    * [-***Sorting Algorithms***-](/src/main/java/org/algomonster/algorithms/sort)
-* [Problems](/src/main/java/org/algomonster/problems)
-    * [Parking System Instructions](/src/main/java/org/algomonster/problems/instructions/ParkingSystem.md)
+    * [-***Sorting Algorithms***-](/org/algomonster/algomonsterlgorithms/sort)
+* [Problems](/org/algomonster/algomonsterroblems)
+    * [Parking System Instructions](/org/algomonster/algomonsterroblems/instructions/ParkingSystem.md)
 
 | Class             |    Type    |                                                                                                      Test Status                                                                                                       | <sub>Space</sub> | <sub>Best</sub>  | <sub>Average</sub> | <sub>Worst</sub> |
 |:------------------|:----------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:----------------:|:----------------:|:------------------:|:----------------:|

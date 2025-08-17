@@ -71,6 +71,12 @@
                         <goals>
                             <goal>report</goal>
                         </goals>
+                        <configuration>
+                            <formats>
+                                <format>XML</format>  <!-- Adds XML output -->
+                                <format>HTML</format>  <!-- Keeps HTML for local viewing -->
+                            </formats>
+                        </configuration>
                     </execution>
                     <execution>
                         <id>report-aggregate</id>
@@ -78,6 +84,12 @@
                         <goals>
                             <goal>report-aggregate</goal>
                         </goals>
+                        <configuration>
+                            <formats>
+                                <format>XML</format>  <!-- Adds XML output -->
+                                <format>HTML</format>  <!-- Keeps HTML for local viewing -->
+                            </formats>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>

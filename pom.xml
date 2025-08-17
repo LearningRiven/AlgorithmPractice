@@ -7,6 +7,11 @@
     <groupId>org.algomonster</groupId>
     <artifactId>algorithm-practice</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <modules>
+        <module>spring-integration</module>
+        <module>core</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
@@ -62,16 +67,17 @@
                     </execution>
                     <execution>
                         <id>report</id>
-                        <phase>verify</phase>  <!-- Changed from test -->
+                        <phase>test</phase>
                         <goals>
                             <goal>report</goal>
                         </goals>
-                        <configuration>
-                            <formats>
-                                <format>XML</format>  <!-- Adds XML output -->
-                                <format>HTML</format>  <!-- Keeps HTML for local viewing -->
-                            </formats>
-                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>report-aggregate</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>report-aggregate</goal>
+                        </goals>
                     </execution>
                 </executions>
             </plugin>

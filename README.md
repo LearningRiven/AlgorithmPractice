@@ -3,11 +3,11 @@
 
 ## Contents
 * [-***Home***-](/)
-* [Data Structures](/src/main/java/org/algomonster/datastructures)
+* [Data Structures](/org/algomonster/algomonster/datastructures)
 * Algorithms
-  * [Sorting Algorithms](/src/main/java/org/algomonster/algorithms/sort)
-* [Problems](/src/main/java/org/algomonster/problems)
-  * [Parking System Instructions](/src/main/java/org/algomonster/problems/instructions/ParkingSystem.md)
+  * [Sorting Algorithms](/org/algomonster/algomonster/algorithms/sort)
+* [Problems](/org/algomonster/algomonster/problems)
+  * [Parking System Instructions](/org/algomonster/algomonster/problems/instructions/ParkingSystem.md)
 
 ## Goals
 - Review concepts that are typically covered in Data Structures and Algorithms

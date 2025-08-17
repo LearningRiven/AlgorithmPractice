@@ -17,3 +17,23 @@ Searching algorithms
 | Class            | Test Status                                                                                                                                                                                                            |
 |:-----------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | BinarySearchTest | ![BinarySearchTest](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/LearningRiven/AlgorithmPractice/ci-stats/test-badges/BinarySearchTest.json&logo=junit5&label=BinarySearchControllerTest%20Passing&labelColor=gray)                |
+
+## Templates
+
+### Binary Search
+```
+Null Checking
+Create default result variable
+Store the start/end index
+Loop while start <= end
+    Calculate the middle
+    
+    Check if the value matches
+        Here we found the element, depending on needs you can store the index/value and either break or continue
+    Else check if current value is bigger than target
+        Cut the right side of array (end = middle - 1)
+    Else current value must be smaller than target
+        Cut the left side of the array (start = middle + 1)
+
+return result
+```

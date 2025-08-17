@@ -18,7 +18,7 @@ public class BinarySearch {
 
     private static <T> int search(List<T> sortedList, T value, Comparator<? super T> comparator){
         if(sortedList == null){
-            throw new IllegalStateException("List is null or empty");
+            throw new IllegalStateException("List is null");
         }
 
         //Fallback comparator

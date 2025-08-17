@@ -1,12 +1,15 @@
-# Sorting Algorithms
+# Algorithms - Sorting Algorithms
 
 ## Contents
 * [Home](/)
-* [Data Structures](/org/algomonster/algomonsteratastructures)
-* Algorithms
-    * [-***Sorting Algorithms***-](/org/algomonster/algomonsterlgorithms/sort)
-* [Problems](/org/algomonster/algomonsterroblems)
-    * [Parking System Instructions](/org/algomonster/algomonsterroblems/instructions/ParkingSystem.md)
+* [Algorithms](/core/src/main/java/org/algomonster/algorithms)
+    * [Exercises Algorithms](/core/src/main/java/org/algomonster/algorithms/exercises)
+    * [Search Algorithms](/core/src/main/java/org/algomonster/algorithms/search)
+    * [-***Sorting Algorithms***-](/core/src/main/java/org/algomonster/algorithms/sort)
+* [Data Structures](/core/src/main/java/org/algomonster/datastructures)
+* [Problems](/core/src/main/java/org/algomonster/problems)
+    * [Parking System Instructions](/core/src/main/java/org/algomonster/problems/instructions/ParkingSystem.md)
+* [Spring](/spring-integration/src/main/java/org/algomonster/spring)
 
 | Class             |    Type    |                                                                                                      Test Status                                                                                                       | <sub>Space</sub> | <sub>Best</sub>  | <sub>Average</sub> | <sub>Worst</sub> |
 |:------------------|:----------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:----------------:|:----------------:|:------------------:|:----------------:|
@@ -175,7 +178,7 @@ sort the right side via recursion using list, startptr + 1, end (skips the pivot
 * Worst Case - 100k values inversely sorted
 
 #### In a real world scenario you can see that in all 3 scenarios are actually faster with the quicksort algorithm, below is a screenshot of the timings
-![S3 Merge vs QuickSort Comparison](/images/S3MergeVsQuick.png)
+![S3 Merge vs QuickSort Comparison](/externalResources/images/S3MergeVsQuick.png)
 
 #### For easier viewing here is a table of the timings I have seen
 

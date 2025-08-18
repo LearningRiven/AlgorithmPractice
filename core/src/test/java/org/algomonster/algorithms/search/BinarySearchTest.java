@@ -11,7 +11,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class BinarySearchTest {
+class BinarySearchTest {
 
     @Test
     void testConstructor() throws NoSuchMethodException {
@@ -115,8 +115,8 @@ public class BinarySearchTest {
     @Test
     void testNull(){
         List<Integer> ordered = Arrays.asList(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20);
-        assertThrows(IllegalStateException.class,() -> BinarySearch.searchListBinary(null,5, null), "List is null or empty");
-        assertThrows(IllegalStateException.class,() -> BinarySearch.searchListBinary(null,null, null), "List is null or empty");
+        assertThrows(IllegalStateException.class,() -> BinarySearch.searchListBinary(null,5, null), "List is null");
+        assertThrows(IllegalStateException.class,() -> BinarySearch.searchListBinary(null,null, null), "List is null");
         assertFalse(BinarySearch.searchListBinary(ordered,null,null).found());
         assertNull(BinarySearch.searchListBinary(ordered,null,null).value());
     }

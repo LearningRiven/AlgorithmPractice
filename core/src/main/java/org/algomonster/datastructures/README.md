@@ -1,12 +1,18 @@
 # Data Structures
 
+## Intro
+My practice for creating datastructures from scratch, plans to eventually expand it to use over the java libraries. My core belief is that fundamental knowledge will lead to greater understanding of how modern problems should be solved.
+
 ## Contents
 * [Home](/)
-* [-***Data Structures***-](/org/algomonster/algomonsteratastructures)
-* Algorithms
-  * [Sorting Algorithms](/org/algomonster/algomonsterlgorithms/sort)
-* [Problems](/org/algomonster/algomonsterroblems)
-  * [Parking System Instructions](/org/algomonster/algomonsterroblems/instructions/ParkingSystem.md)
+* [Algorithms](/core/src/main/java/org/algomonster/algorithms)
+  * [Exercises Algorithms](/core/src/main/java/org/algomonster/algorithms/exercises)
+  * [Search Algorithms](/core/src/main/java/org/algomonster/algorithms/search)
+  * [Sorting Algorithms](/core/src/main/java/org/algomonster/algorithms/sort)
+* [-***Data Structures***-](/core/src/main/java/org/algomonster/datastructures)
+* [Problems](/core/src/main/java/org/algomonster/problems)
+  * [Parking System Instructions](/core/src/main/java/org/algomonster/problems/instructions/ParkingSystem.md)
+* [Spring](/spring-integration/src/main/java/org/algomonster/spring)
 
 ## The Goal
 

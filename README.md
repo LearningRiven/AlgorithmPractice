@@ -61,13 +61,13 @@
 
 
 ### Search - Algorithm Implementations/Tests
-| Class             |          Type          |                                                                                                      Test Status                                                                                                       |
-|:------------------|:----------------------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+| Class             |                                                                                                    Test Status                                                                                                       |
+|:------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
 | BinarySearchTest | ![BinarySearchTest](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/LearningRiven/AlgorithmPractice/ci-stats/test-badges/BinarySearchTest.json&logo=junit5&label=BinarySearchControllerTest%20Passing&labelColor=gray)                |
 
 ### Sorting - Algorithm Implementations/Tests
-| Class             |          Type          |                                                                                                      Test Status                                                                                                       |
-|:------------------|:----------------------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+| Class             |                                                                                                      Test Status                                                                                                       |
+|:------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
 | BruteForceTest    |       BruteForce       |    ![Brute Force](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/LearningRiven/AlgorithmPractice/ci-stats/test-badges/BruteForceTest.json&logo=junit5&label=Tests%20Passing&labelColor=gray)    |
 | InsertionSortTest |       Insertion        | ![Insertion Sort](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/LearningRiven/AlgorithmPractice/ci-stats/test-badges/InsertionSortTest.json&logo=junit5&label=Tests%20Passing&labelColor=gray) |
 | SelectionSortTest |       Selection        | ![Selection Sort](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/LearningRiven/AlgorithmPractice/ci-stats/test-badges/SelectionSortTest.json&logo=junit5&label=Tests%20Passing&labelColor=gray) |

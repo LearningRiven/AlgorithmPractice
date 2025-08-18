@@ -1,6 +1,5 @@
 package org.algomonster.algorithms.exercises;
 
-import org.algomonster.algorithms.search.BinarySearch;
 import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Constructor;

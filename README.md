@@ -53,9 +53,12 @@
 ## Algorithms
 ##### The Goal with this package is to first create a brute force approach for both sorting and searching through structures. Then as I added a new algorithm for either, I analyzed the costs and benefits associated with each approach when compared to the Brute Force approach I initially chose
 ### Exercises - Algorithm Implementations/Tests
-| Class                       |          Type          |                                                                                                      Test Status                                                                                                       |
-|:----------------------------|:----------------------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
-| BinaryFirstTrueInSortedTest | ![BinaryFirstTrueInSortedTest](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/LearningRiven/AlgorithmPractice/ci-stats/test-badges/BinaryFirstTrueInSortedTest.json&logo=junit5&label=BinarySearchControllerTest%20Passing&labelColor=gray)                |
+| Class                            |          Type          |                                                                                                      Test Status                                                                                                       |
+|:---------------------------------|:----------------------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+| BinaryFirstTrueInSortedTest      | ![BinarySearchTest](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/LearningRiven/AlgorithmPractice/ci-stats/test-badges/BinaryFirstTrueInSortedTest.json&logo=junit5&label=BinarySearchControllerTest%20Passing&labelColor=gray)                |
+| BinaryFirstElementNotSmallerTest | ![BinaryFirstElementNotSmallerTest](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/LearningRiven/AlgorithmPractice/ci-stats/test-badges/BinaryFirstElementNotSmallerTest.json&logo=junit5&label=BinarySearchControllerTest%20Passing&labelColor=gray)                |
+| BinarySquareRootEstimationTest | ![BinarySquareRootEstimationTest](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/LearningRiven/AlgorithmPractice/ci-stats/test-badges/BinarySquareRootEstimationTest.json&logo=junit5&label=BinarySearchControllerTest%20Passing&labelColor=gray)                |
+
 
 ### Search - Algorithm Implementations/Tests
 | Class             |          Type          |                                                                                                      Test Status                                                                                                       |
